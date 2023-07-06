@@ -12,6 +12,15 @@ export default buildConfig({
     user: Users.slug,
   },
   collections: [Pages, Users],
+  serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
+  cors: [
+    process.env.PAYLOAD_PUBLIC_SERVER_URL || "",
+    process.env.PAYLOAD_PUBLIC_SITE_URL || "",
+  ].filter(Boolean),
+  csrf: [
+    process.env.PAYLOAD_PUBLIC_SERVER_URL || "",
+    process.env.PAYLOAD_PUBLIC_SITE_URL || "",
+  ].filter(Boolean),
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
   },

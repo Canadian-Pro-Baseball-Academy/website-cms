@@ -53,7 +53,14 @@ const Users: CollectionConfig = {
     update: adminsOrSelf,
     delete: adminsOrSelf,
   },
-  auth: true,
+  auth: {
+    tokenExpiration: 60 * 60 * 24, // 8 hours
+    cookies: {
+      sameSite: "none",
+      secure: true,
+      // domain: "website-puce-ten-12.vercel.app",
+    },
+  },
   fields: UserFields,
   timestamps: true,
 };
