@@ -1,18 +1,61 @@
-import { CollectionConfig } from 'payload/types';
+import { CollectionConfig } from "payload/types";
+import { admins } from "../access/admins";
+import adminsOrSelf from "../access/admins-self";
+import { anyone } from "../access/anyone";
+import { checkRole } from "../utils/check-roles";
+
+const UserFields: CollectionConfig["fields"] = [
+  {
+    name: "name",
+    type: "text",
+  },
+  {
+    name: "roles",
+    type: "select",
+    hasMany: true,
+    saveToJWT: true,
+    options: [
+      {
+        label: "Admin",
+        value: "admin",
+      },
+      {
+        label: "Editor",
+        value: "editor",
+      },
+      // {
+      //   label: "Author",
+      //   value: "author",
+      // },
+      // {
+      //   label: "Contributor",
+      //   value: "contributor",
+      // },
+    ],
+    access: {
+      read: admins,
+      create: admins,
+      update: admins,
+    },
+  },
+];
 
 const Users: CollectionConfig = {
-  slug: 'users',
-  auth: true,
+  slug: "users",
   admin: {
-    useAsTitle: 'email',
+    useAsTitle: "name",
+    defaultColumns: ["name", "email"],
+    group: "Admin",
   },
   access: {
-    read: () => true,
+    read: anyone,
+    create: admins,
+    update: adminsOrSelf,
+    delete: adminsOrSelf,
   },
-  fields: [
-    // Email added by default
-    // Add more fields as needed
-  ],
+  auth: true,
+  fields: UserFields,
+  timestamps: true,
 };
 
 export default Users;
