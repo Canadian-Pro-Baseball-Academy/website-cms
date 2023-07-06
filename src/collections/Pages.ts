@@ -5,6 +5,7 @@ import { editorsOrPublished } from "../access/editors-published";
 import { editors } from "../access/editors";
 import { admins } from "../access/admins";
 import { formatPreviewURL } from "../utils/format-preview";
+import { anyone } from "../access/anyone";
 
 export const Pages: CollectionConfig = {
   slug: "pages",
@@ -15,7 +16,9 @@ export const Pages: CollectionConfig = {
     group: "Content",
   },
   access: {
-    read: editorsOrPublished,
+    // TODO: Add security to read access
+    // read: editorsOrPublished,
+    read: anyone,
     update: editors,
     create: editors,
     delete: admins,
