@@ -9,6 +9,7 @@ export interface Config {
   collections: {
     pages: Page;
     users: User;
+    redirects: Redirect;
   };
   globals: {};
 }
@@ -19,6 +20,13 @@ export interface Page {
     previewTest?: string;
   };
   slug?: string;
+  parent?: string | Page;
+  breadcrumbs?: {
+    doc?: string | Page;
+    url?: string;
+    label?: string;
+    id?: string;
+  }[];
   updatedAt: string;
   createdAt: string;
   _status?: 'draft' | 'published';
@@ -35,4 +43,18 @@ export interface User {
   loginAttempts?: number;
   lockUntil?: string;
   password?: string;
+}
+export interface Redirect {
+  id: string;
+  from: string;
+  to: {
+    type?: 'reference' | 'custom';
+    reference: {
+      value: string | Page;
+      relationTo: 'pages';
+    };
+    url: string;
+  };
+  updatedAt: string;
+  createdAt: string;
 }

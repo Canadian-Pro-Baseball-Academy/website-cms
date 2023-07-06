@@ -1443,6 +1443,16 @@
     amazon-cognito-identity-js "^6.1.2"
     resend "^0.12.0"
 
+"@payloadcms/plugin-nested-docs@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@payloadcms/plugin-nested-docs/-/plugin-nested-docs-1.0.5.tgz#a4e63cf904c0923e02252c52765c1a5af38c08c6"
+  integrity sha512-FXNIr0xVO5uSmwLjckBTSA0t5UzgQBCWZVcAMAE+wzjelX3C29y0iUqBYsNPQK3DBua7ko92btV2cWuZVRMIqA==
+
+"@payloadcms/plugin-redirects@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@payloadcms/plugin-redirects/-/plugin-redirects-1.0.0.tgz#e03243cb0582b9305cac9cc3ef571a9c0beb1665"
+  integrity sha512-BAoNRSw6bT73wnxdKsR8HwaMeRwSshp4d7xfN1EfaW6IMoUYER/lHG/bwN61O2+hapvBd6fOfMuUdzy9sDazxw==
+
 "@polka/url@^1.0.0-next.20":
   version "1.0.0-next.21"
   resolved "https://registry.npmjs.org/@polka/url/-/url-1.0.0-next.21.tgz#5de5a2385a35309427f6011992b544514d559aa1"

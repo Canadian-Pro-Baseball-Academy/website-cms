@@ -4,12 +4,14 @@ import { hero } from "../fields/hero";
 import { editorsOrPublished } from "../access/editors-published";
 import { editors } from "../access/editors";
 import { admins } from "../access/admins";
+import { formatPreviewURL } from "../utils/format-preview";
 
 export const Pages: CollectionConfig = {
   slug: "pages",
   admin: {
     useAsTitle: "title",
     defaultColumns: ["title", "slug", "updatedAt"],
+    preview: (doc) => formatPreviewURL("pages", doc),
     group: "Content",
   },
   access: {
