@@ -58,7 +58,7 @@ const Users: CollectionConfig = {
     cookies: {
       sameSite: "none",
       secure: true,
-      domain: "website-puce-ten-12.vercel.app",
+      domain: ".calgarybisons.payloadcms.app",
     },
   },
   fields: UserFields,
