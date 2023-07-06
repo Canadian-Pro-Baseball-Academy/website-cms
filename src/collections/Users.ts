@@ -58,7 +58,7 @@ const Users: CollectionConfig = {
     cookies: {
       sameSite: "none",
       secure: true,
-      domain: ".calgarybisons.payloadcms.app",
+      domain: "calgarybisons.payloadcms.app",
     },
   },
   fields: UserFields,
