@@ -14,6 +14,7 @@ export const revalidatePage: AfterChangeHook = ({ doc, req }) => {
         req.payload.logger.info(
           `${process.env.PAYLOAD_PUBLIC_SITE_URL}/api/revalidate?secret=${process.env.PAYLOAD_PUBLIC_REVALIDATION_KEY}&tag=pages`
         );
+        req.payload.logger.info(JSON.stringify(json));
         req.payload.logger.info(`Revalidated path ${req.collection}`);
       } else {
         req.payload.logger.error(`Error revalidating path ${req.collection}`);
