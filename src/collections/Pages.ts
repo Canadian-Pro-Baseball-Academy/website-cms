@@ -1,11 +1,11 @@
 import type { CollectionConfig } from "payload/types";
 import { slug } from "../fields/slug";
 import { hero } from "../fields/hero";
-import { editorsOrPublished } from "../access/editors-published";
 import { editors } from "../access/editors";
 import { admins } from "../access/admins";
 import { formatPreviewURL } from "../utils/format-preview";
 import { anyone } from "../access/anyone";
+import { revalidatePage } from "../hooks/revalidatePage";
 
 export const Pages: CollectionConfig = {
   slug: "pages",
@@ -26,6 +26,9 @@ export const Pages: CollectionConfig = {
   versions: {
     drafts: true,
     maxPerDoc: 10,
+  },
+  hooks: {
+    afterChange: [revalidatePage],
   },
   fields: [
     {
