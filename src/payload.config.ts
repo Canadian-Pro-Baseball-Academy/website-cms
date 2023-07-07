@@ -13,10 +13,7 @@ export default buildConfig({
   },
   collections: [Pages, Users],
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
-  cors: [
-    process.env.PAYLOAD_PUBLIC_SERVER_URL || "",
-    process.env.PAYLOAD_PUBLIC_SITE_URL || "",
-  ].filter(Boolean),
+  cors: "*",
   csrf: [
     process.env.PAYLOAD_PUBLIC_SERVER_URL || "",
     process.env.PAYLOAD_PUBLIC_SITE_URL || "",
