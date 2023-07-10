@@ -83,9 +83,6 @@ export const Teams: CollectionConfig = {
   admin: {
     defaultColumns: ["name", "_status", "updatedAt", "createdAt"],
     group: "Content",
-    components: {
-      BeforeList: [BeforeTeams],
-    },
   },
   versions: {
     drafts: true,

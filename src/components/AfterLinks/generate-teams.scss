@@ -1,0 +1,38 @@
+@import '~payload/scss';
+
+.generate-teams {
+	&__label {
+        color: var(--theme-elevation-400);
+    }
+
+    &__links {
+        position: relative;
+        padding: base(.125) base(1.5) base(.125) 0;
+        display: flex;
+        text-decoration: none;
+        cursor: pointer;
+
+        &:focus {
+            box-shadow: none;
+            font-weight: 600;
+        }
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        &.active {
+            font-weight: normal;
+            padding-left: base(.6);
+            font-weight: 600;
+        }
+    }
+
+    @include mid-break {
+        &__links {
+          font-size: base(.875);
+          line-height: base(1.25);
+          font-weight: 600;
+        }
+      }
+}

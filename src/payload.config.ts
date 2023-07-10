@@ -7,10 +7,15 @@ import redirects from "@payloadcms/plugin-redirects";
 import { admins } from "./access/admins";
 import nestedDocs from "@payloadcms/plugin-nested-docs";
 import { Teams } from "./collections/Teams";
+import BeforeTeams from "./components/BeforeTeams";
+import GenerateTeams from "./components/AfterLinks/generate-teams";
 
 export default buildConfig({
   admin: {
     user: Users.slug,
+    components: {
+      afterNavLinks: [GenerateTeams],
+    },
   },
   collections: [Pages, Teams, Users],
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
