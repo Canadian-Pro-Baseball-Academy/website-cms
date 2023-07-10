@@ -7,7 +7,7 @@ const baseClass = "generate-teams";
 const GenerateTeams = () => {
   return (
     <div>
-      <div className={`${baseClass}__label`}>Generation</div>
+      <p className={`${baseClass}__group_label`}>Generation</p>
       <a
         className={`${baseClass}__links`}
         onClick={async () => {

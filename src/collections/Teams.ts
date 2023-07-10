@@ -94,6 +94,12 @@ export const Teams: CollectionConfig = {
       required: true,
     },
     {
+      name: "coaches",
+      type: "relationship",
+      relationTo: "coaches",
+      hasMany: true,
+    },
+    {
       name: "teamsnapId",
       type: "text",
       required: true,
