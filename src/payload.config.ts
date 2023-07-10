@@ -10,6 +10,7 @@ import { Teams } from "./collections/Teams";
 import BeforeTeams from "./components/BeforeTeams";
 import GenerateTeams from "./components/AfterLinks/generate-teams";
 import { Coaches } from "./collections/Coaches";
+import { Media } from "./collections/Media";
 
 export default buildConfig({
   admin: {
@@ -18,7 +19,7 @@ export default buildConfig({
       afterNavLinks: [GenerateTeams],
     },
   },
-  collections: [Coaches, Pages, Teams, Users],
+  collections: [Coaches, Media, Pages, Teams, Users],
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
   cors: "*",
   csrf: [
