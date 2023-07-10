@@ -100,6 +100,14 @@ export const Teams: CollectionConfig = {
       hasMany: true,
     },
     {
+      name: "teamPhoto",
+      type: "upload",
+      relationTo: "media",
+      admin: {
+        description: "Team photo. Should be a landscape image.",
+      },
+    },
+    {
       name: "teamsnapId",
       type: "text",
       required: true,

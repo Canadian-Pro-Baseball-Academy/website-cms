@@ -18,6 +18,15 @@ export const Coaches: CollectionConfig = {
       required: true,
     },
     {
+      name: "headshot",
+      type: "upload",
+      relationTo: "media",
+      required: true,
+      admin: {
+        description: "Headshot of the coach. Should be a square image.",
+      },
+    },
+    {
       type: "tabs",
       tabs: [
         {
