@@ -16,7 +16,7 @@ const start = async () => {
     mongoURL: process.env.MONGODB_URI,
     express: app,
     onInit: async () => {
-      payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`);
+      payload.logger.info(`Payload Admin URL Test: ${payload.getAdminURL()}`);
     },
   });
 
