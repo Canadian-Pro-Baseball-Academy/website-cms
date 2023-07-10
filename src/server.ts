@@ -1,5 +1,6 @@
 import express from "express";
 import payload from "payload";
+import { generateTeams } from "./utils/teamsnap/generate-teams";
 
 require("dotenv").config();
 const app = express();
@@ -20,7 +21,10 @@ const start = async () => {
     },
   });
 
-  // Add your own express routes here
+  app.get("/generate-teams", async (req, res) => {
+    await generateTeams(payload);
+    res.send("Generating Teams");
+  });
 
   app.listen(process.env.PORT || 8000);
 };
