@@ -1,8 +1,18 @@
 @import '~payload/scss';
 
 .generate-teams {
-	&__label {
+	&__group_label {
         color: var(--theme-elevation-400);
+        background: transparent;
+        padding-left: 0;
+        border: 0;
+        margin-top: base(.25);
+        margin-bottom: 0;
+        width: 100%;
+        text-align: left;
+        display: flex;
+        align-items: flex-start;
+        padding-right: base(.5);
     }
 
     &__links {
