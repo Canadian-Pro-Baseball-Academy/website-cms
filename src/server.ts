@@ -21,10 +21,10 @@ const start = async () => {
     },
   });
 
-  // app.get("/generate-teams", async (req, res) => {
-  //   await generateTeams(payload);
-  //   res.send("Generating Teams");
-  // });
+  app.get("/generate-teams", async (req, res) => {
+    await generateTeams(payload);
+    res.send("Generating Teams");
+  });
 
   app.listen(process.env.PORT || 8000);
 };
