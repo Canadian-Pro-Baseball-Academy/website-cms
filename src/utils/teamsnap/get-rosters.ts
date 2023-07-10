@@ -9,7 +9,7 @@ export async function getRosterById(id: string) {
       {
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${process.env.TEAMSNAP_PUBLIC_AUTH_TOKEN}`,
+          Authorization: `Bearer ${process.env.PAYLOAD_PUBLIC_TEAMSNAP_AUTH_TOKEN}`,
         },
       }
     );

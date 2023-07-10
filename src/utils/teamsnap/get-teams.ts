@@ -18,7 +18,7 @@ export async function getTeams(): Promise<iTeamsAPI> {
     const self = await fetch("https://api.teamsnap.com/v3/me", {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.TEAMSNAP_PUBLIC_AUTH_TOKEN}`,
+        Authorization: `Bearer ${process.env.PAYLOAD_PUBLIC_TEAMSNAP_AUTH_TOKEN}`,
       },
     });
 
@@ -32,7 +32,7 @@ export async function getTeams(): Promise<iTeamsAPI> {
     const leagues = await fetch(leaguesObject.href, {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.TEAMSNAP_PUBLIC_AUTH_TOKEN}`,
+        Authorization: `Bearer ${process.env.PAYLOAD_PUBLIC_TEAMSNAP_AUTH_TOKEN}`,
       },
     });
 
@@ -55,7 +55,7 @@ export async function getTeams(): Promise<iTeamsAPI> {
     const ageGroup = await fetch(ageGroupObject.href, {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.TEAMSNAP_PUBLIC_AUTH_TOKEN}`,
+        Authorization: `Bearer ${process.env.PAYLOAD_PUBLIC_TEAMSNAP_AUTH_TOKEN}`,
       },
     });
 
@@ -78,7 +78,7 @@ export async function getTeams(): Promise<iTeamsAPI> {
 
         const teams = await fetch(teamObject.href, {
           headers: {
-            Authorization: `Bearer ${process.env.TEAMSNAP_PUBLIC_AUTH_TOKEN}`,
+            Authorization: `Bearer ${process.env.PAYLOAD_PUBLIC_TEAMSNAP_AUTH_TOKEN}`,
           },
         });
 
