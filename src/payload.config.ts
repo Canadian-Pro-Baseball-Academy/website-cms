@@ -9,6 +9,7 @@ import nestedDocs from "@payloadcms/plugin-nested-docs";
 import { Teams } from "./collections/Teams";
 import BeforeTeams from "./components/BeforeTeams";
 import GenerateTeams from "./components/AfterLinks/generate-teams";
+import { Coaches } from "./collections/Coaches";
 
 export default buildConfig({
   admin: {
@@ -17,7 +18,7 @@ export default buildConfig({
       afterNavLinks: [GenerateTeams],
     },
   },
-  collections: [Pages, Teams, Users],
+  collections: [Coaches, Pages, Teams, Users],
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
   cors: "*",
   csrf: [
