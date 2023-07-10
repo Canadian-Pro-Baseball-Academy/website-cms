@@ -1,0 +1,33 @@
+@import '~payload/scss';
+
+.before-teams {
+	margin-top: base(2);
+	margin-bottom: 0;
+
+	&__banner {
+		& h4 {
+			margin: 0;
+		}
+        & p {
+            margin: 0 !important;
+        }
+	}
+
+    &__button {
+        margin-top: base(1);
+        margin-bottom: 0;
+    }
+
+	&__instructions {
+		list-style: decimal;
+		margin-bottom: base(0.5);
+
+		& li {
+			width: 100%;
+		}
+	}
+
+	& a:hover {
+		opacity: 0.85;
+	}
+}

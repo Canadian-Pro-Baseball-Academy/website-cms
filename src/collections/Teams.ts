@@ -1,5 +1,5 @@
 import { CollectionConfig } from "payload/types";
-// import { TeamsList } from "../components/teams-list";
+import BeforeTeams from "../components/BeforeTeams";
 
 const PlayerFields: CollectionConfig["fields"] = [
   {
@@ -81,15 +81,11 @@ const PlayerFields: CollectionConfig["fields"] = [
 export const Teams: CollectionConfig = {
   slug: "teams",
   admin: {
-    description:
-      "For a new season you can genereate all the teams with the button above.\n  **NOTE** The generation is not perfect, manual corrections may be needed, due to this the generator does NOT overwrite any existing teams, it will only create new ones.  If you need to delete a team, you can do so manually.",
     defaultColumns: ["name", "_status", "updatedAt", "createdAt"],
     group: "Content",
-    // components: {
-    //   views: {
-    //     List: TeamsList,
-    //   },
-    // },
+    components: {
+      BeforeList: [BeforeTeams],
+    },
   },
   versions: {
     drafts: true,
