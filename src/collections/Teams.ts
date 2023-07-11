@@ -81,6 +81,7 @@ const PlayerFields: CollectionConfig["fields"] = [
 export const Teams: CollectionConfig = {
   slug: "teams",
   admin: {
+    useAsTitle: "name",
     defaultColumns: ["name", "_status", "updatedAt", "createdAt"],
     group: "Content",
   },

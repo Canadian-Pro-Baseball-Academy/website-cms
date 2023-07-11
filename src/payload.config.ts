@@ -13,6 +13,8 @@ import { Coaches } from "./collections/Coaches";
 import { Media } from "./collections/Media";
 import { Icon } from "./graphics/icon";
 import { Logo } from "./graphics/logo";
+import { Footer } from "./globals/Footer";
+import { MainMenu } from "./globals/MainMenu";
 
 export default buildConfig({
   admin: {
@@ -32,6 +34,7 @@ export default buildConfig({
     },
   },
   collections: [Coaches, Media, Pages, Teams, Users],
+  globals: [Footer, MainMenu],
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
   cors: "*",
   csrf: [
@@ -54,7 +57,7 @@ export default buildConfig({
     redirects({
       overrides: {
         admin: {
-          group: "Admin",
+          group: "Settings",
         },
         access: {
           read: admins,
