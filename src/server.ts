@@ -1,5 +1,6 @@
 import express from "express";
 import payload from "payload";
+import path from "path";
 
 import { generateTeams } from "./utils/teamsnap/generate-teams";
 
@@ -10,6 +11,9 @@ const app = express();
 app.get("/", (_, res) => {
   res.redirect("/admin");
 });
+
+// Serve static assets
+app.use("/assets", express.static(path.resolve(__dirname, "../assets")));
 
 const start = async () => {
   // Initialize Payload
