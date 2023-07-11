@@ -1,7 +1,5 @@
 import React from "react";
 
-import "./generate-teams.scss";
-
 const baseClass = "generate-teams";
 
 const GenerateTeams = () => {

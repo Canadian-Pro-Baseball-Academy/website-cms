@@ -11,12 +11,24 @@ import BeforeTeams from "./components/BeforeTeams";
 import GenerateTeams from "./components/AfterLinks/generate-teams";
 import { Coaches } from "./collections/Coaches";
 import { Media } from "./collections/Media";
+import { Icon } from "./graphics/icon";
+import { Logo } from "./graphics/logo";
 
 export default buildConfig({
   admin: {
     user: Users.slug,
+    css: path.resolve(__dirname, "./styles/globals.scss"),
     components: {
       afterNavLinks: [GenerateTeams],
+      graphics: {
+        Icon,
+        Logo,
+      },
+    },
+    meta: {
+      favicon: "/assets/favicon.svg",
+      ogImage: "/assets/og-image.svg",
+      titleSuffix: " | Calgary Bisons CMS",
     },
   },
   collections: [Coaches, Media, Pages, Teams, Users],
