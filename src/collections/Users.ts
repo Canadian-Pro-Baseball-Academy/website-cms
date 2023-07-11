@@ -45,7 +45,7 @@ const Users: CollectionConfig = {
   admin: {
     useAsTitle: "name",
     defaultColumns: ["name", "email"],
-    group: "Admin",
+    group: "Settings",
   },
   access: {
     read: anyone,
@@ -54,7 +54,7 @@ const Users: CollectionConfig = {
     delete: adminsOrSelf,
   },
   auth: {
-    tokenExpiration: 60 * 60 * 24, // 8 hours
+    tokenExpiration: 60 * 60 * 24, // 24 hours
     cookies: {
       sameSite: "none",
       secure: true,
