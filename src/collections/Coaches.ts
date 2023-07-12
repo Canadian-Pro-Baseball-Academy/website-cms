@@ -1,4 +1,8 @@
 import { CollectionConfig } from "payload/types";
+import { richText } from "../fields/richText";
+import richTextKicker from "../fields/richText/kicker";
+import richTextLargeBody from "../fields/richText/largeBody";
+import hr from "../fields/richText/hr";
 
 export const Coaches: CollectionConfig = {
   slug: "coaches",
@@ -100,10 +104,23 @@ export const Coaches: CollectionConfig = {
         {
           label: "Biography",
           fields: [
-            {
-              name: "biograghy",
-              type: "textarea",
-            },
+            richText({
+              name: "biography",
+              admin: {
+                elements: [
+                  "blockquote",
+                  "h2",
+                  "h3",
+                  "h4",
+                  richTextKicker,
+                  richTextLargeBody,
+                  "link",
+                  "ol",
+                  "ul",
+                  hr,
+                ],
+              },
+            }),
             {
               name: "career",
               label: "Career Achievements",
