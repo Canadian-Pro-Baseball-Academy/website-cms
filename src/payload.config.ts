@@ -29,7 +29,7 @@ export default buildConfig({
     },
     meta: {
       favicon: "/assets/favicon.svg",
-      ogImage: "/assets/og-image.svg",
+      ogImage: "https://calgarybisons.payloadcms.app/assets/og-image.svg",
       titleSuffix: " | Calgary Bisons CMS",
     },
   },
