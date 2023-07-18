@@ -51,6 +51,7 @@ export interface Coach {
 export interface Media {
   id: string;
   alt: string;
+  blurURL?: string;
   darkModeFallback?: string | Media;
   updatedAt: string;
   createdAt: string;
@@ -64,7 +65,35 @@ export interface Media {
 export interface Page {
   id: string;
   title: string;
-  hero?: {
+  hero: {
+    type: 'default' | 'contentMedia' | 'form' | 'home' | 'registration';
+    richText?: {
+      [k: string]: unknown;
+    }[];
+    links?: {
+      link: {
+        type?: 'reference' | 'custom';
+        newTab?: boolean;
+        reference:
+          | {
+              value: string | Page;
+              relationTo: 'pages';
+            }
+          | {
+              value: string | Team;
+              relationTo: 'teams';
+            };
+        url: string;
+        label: string;
+        appearance?: 'primary' | 'secondary';
+      };
+      id?: string;
+    }[];
+    media: string | Media;
+    values?: {
+      value: string;
+      id?: string;
+    }[];
     previewTest?: string;
   };
   slug?: string;

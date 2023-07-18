@@ -24,6 +24,10 @@ export const Media: CollectionConfig = {
       required: true,
     },
     {
+      name: "blurURL",
+      type: "text",
+    },
+    {
       name: "darkModeFallback",
       type: "upload",
       relationTo: "media",
