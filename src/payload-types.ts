@@ -8,12 +8,58 @@
 
 export interface Config {
   collections: {
+    coaches: Coach;
+    media: Media;
     pages: Page;
     teams: Team;
     users: User;
     redirects: Redirect;
   };
-  globals: {};
+  globals: {
+    footer: Footer;
+    'main-menu': MainMenu;
+  };
+}
+export interface Coach {
+  id: string;
+  name: string;
+  headshot: string | Media;
+  Role?: {
+    title?: string;
+    roles?: {
+      role: string;
+      id?: string;
+    }[];
+  };
+  socials?: {
+    twitter?: string;
+    instagram?: string;
+    facebook?: string;
+    youtube?: string;
+  };
+  biography?: {
+    [k: string]: unknown;
+  }[];
+  career?: {
+    achievement: string;
+    id?: string;
+  }[];
+  updatedAt: string;
+  createdAt: string;
+  _status?: 'draft' | 'published';
+}
+export interface Media {
+  id: string;
+  alt: string;
+  darkModeFallback?: string | Media;
+  updatedAt: string;
+  createdAt: string;
+  url?: string;
+  filename?: string;
+  mimeType?: string;
+  filesize?: number;
+  width?: number;
+  height?: number;
 }
 export interface Page {
   id: string;
@@ -36,6 +82,8 @@ export interface Page {
 export interface Team {
   id: string;
   name: string;
+  coaches?: string[] | Coach[];
+  teamPhoto?: string | Media;
   teamsnapId: string;
   roster?: {
     firstName: string;
@@ -89,4 +137,99 @@ export interface Redirect {
   };
   updatedAt: string;
   createdAt: string;
+}
+export interface Footer {
+  id: string;
+  socialLinks?: {
+    facebook?: string;
+    instagram?: string;
+    twitter?: string;
+    github?: string;
+  };
+  columns?: {
+    label?: string;
+    navItems?: {
+      link: {
+        type?: 'reference' | 'custom';
+        newTab?: boolean;
+        reference:
+          | {
+              value: string | Page;
+              relationTo: 'pages';
+            }
+          | {
+              value: string | Team;
+              relationTo: 'teams';
+            };
+        url: string;
+        label: string;
+      };
+      id?: string;
+    }[];
+    id?: string;
+  }[];
+  updatedAt?: string;
+  createdAt?: string;
+}
+export interface MainMenu {
+  id: string;
+  right?: {
+    type?: 'single' | 'dropdown';
+    link?: {
+      type?: 'reference' | 'custom';
+      newTab?: boolean;
+      reference:
+        | {
+            value: string | Page;
+            relationTo: 'pages';
+          }
+        | {
+            value: string | Team;
+            relationTo: 'teams';
+          };
+      url: string;
+      label: string;
+    };
+    dropdownItems?: {
+      link: {
+        type?: 'reference' | 'custom';
+        newTab?: boolean;
+        reference:
+          | {
+              value: string | Page;
+              relationTo: 'pages';
+            }
+          | {
+              value: string | Team;
+              relationTo: 'teams';
+            };
+        url: string;
+        label: string;
+        description?: string;
+      };
+      id?: string;
+    }[];
+    id?: string;
+  }[];
+  left?: {
+    link: {
+      type?: 'reference' | 'custom';
+      newTab?: boolean;
+      reference:
+        | {
+            value: string | Page;
+            relationTo: 'pages';
+          }
+        | {
+            value: string | Team;
+            relationTo: 'teams';
+          };
+      url: string;
+      label: string;
+      appearance?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'link';
+    };
+    id?: string;
+  }[];
+  updatedAt?: string;
+  createdAt?: string;
 }
