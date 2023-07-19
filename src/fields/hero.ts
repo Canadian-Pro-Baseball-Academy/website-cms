@@ -72,6 +72,15 @@ export const hero: Field = {
       },
     },
     {
+      name: "forms",
+      type: "relationship",
+      relationTo: "registration-forms",
+      hasMany: true,
+      admin: {
+        condition: (_, { type }) => type === "registration",
+      },
+    },
+    {
       name: "previewTest",
       label: "Preview Test",
       type: "text",

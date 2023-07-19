@@ -11,6 +11,7 @@ export interface Config {
     coaches: Coach;
     media: Media;
     pages: Page;
+    'registration-forms': RegistrationForm;
     teams: Team;
     users: User;
     redirects: Redirect;
@@ -94,6 +95,7 @@ export interface Page {
       value: string;
       id?: string;
     }[];
+    forms?: string[] | RegistrationForm[];
     previewTest?: string;
   };
   slug?: string;
@@ -137,6 +139,16 @@ export interface Team {
   updatedAt: string;
   createdAt: string;
   _status?: 'draft' | 'published';
+}
+export interface RegistrationForm {
+  id: string;
+  title: string;
+  formId: number;
+  description?: {
+    [k: string]: unknown;
+  }[];
+  updatedAt: string;
+  createdAt: string;
 }
 export interface User {
   id: string;
