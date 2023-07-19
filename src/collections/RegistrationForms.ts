@@ -2,6 +2,7 @@ import { CollectionConfig } from "payload/types";
 import { admins } from "../access/admins";
 import { richText } from "../fields/richText";
 import { anyone } from "../access/anyone";
+import linkGroup from "../fields/linkGroup";
 
 export const RegistrationForms: CollectionConfig = {
   slug: "registration-forms",
@@ -36,8 +37,15 @@ export const RegistrationForms: CollectionConfig = {
     richText({
       name: "description",
       admin: {
-        elements: [],
+        elements: ["ol", "ul", "link"],
       },
+    }),
+    linkGroup({
+      overrides: {
+        label: "Registration Form Links",
+        maxRows: 2,
+      },
+      appearances: ["primary", "ghost"],
     }),
   ],
 };
