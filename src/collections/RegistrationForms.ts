@@ -1,6 +1,7 @@
 import { CollectionConfig } from "payload/types";
 import { admins } from "../access/admins";
 import { richText } from "../fields/richText";
+import { anyone } from "../access/anyone";
 
 export const RegistrationForms: CollectionConfig = {
   slug: "registration-forms",
@@ -8,8 +9,11 @@ export const RegistrationForms: CollectionConfig = {
     useAsTitle: "title",
     group: "Settings",
   },
+  versions: {
+    drafts: true,
+  },
   access: {
-    read: admins,
+    read: anyone,
     update: admins,
     create: admins,
     delete: admins,
