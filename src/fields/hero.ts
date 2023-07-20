@@ -71,15 +71,15 @@ export const hero: Field = {
         condition: (_, { type }) => type === "home",
       },
     },
-    {
-      name: "forms",
-      type: "relationship",
-      relationTo: "registration-forms",
-      hasMany: true,
-      admin: {
-        condition: (_, { type }) => type === "registration",
-      },
-    },
+    // {
+    //   name: "forms",
+    //   type: "relationship",
+    //   relationTo: "registration-forms",
+    //   hasMany: true,
+    //   admin: {
+    //     condition: (_, { type }) => type === "registration",
+    //   },
+    // },
     {
       name: "previewTest",
       label: "Preview Test",

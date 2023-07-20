@@ -14,8 +14,7 @@ import { Media } from "./collections/Media";
 import { Icon } from "./graphics/icon";
 import { Logo } from "./graphics/logo";
 import { Footer } from "./globals/Footer";
-import { MainMenu } from "./globals/MainMenu";
-import { RegistrationForms } from "./collections/RegistrationForms";
+import { Header } from "./globals/Header";
 
 export default buildConfig({
   admin: {
@@ -34,8 +33,8 @@ export default buildConfig({
       titleSuffix: " | Calgary Bisons CMS",
     },
   },
-  collections: [Coaches, Media, Pages, RegistrationForms, Teams, Users],
-  globals: [Footer, MainMenu],
+  collections: [Coaches, Media, Pages, Teams, Users],
+  globals: [Footer, Header],
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
   cors: "*",
   csrf: [
@@ -58,7 +57,7 @@ export default buildConfig({
     redirects({
       overrides: {
         admin: {
-          group: "Settings",
+          group: "Config",
         },
         access: {
           read: admins,

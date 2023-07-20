@@ -3,8 +3,11 @@ import { admins } from "../access/admins";
 import { anyone } from "../access/anyone";
 import link from "../fields/link";
 
-export const MainMenu: GlobalConfig = {
-  slug: "main-menu",
+export const Header: GlobalConfig = {
+  slug: "header",
+  admin: {
+    group: "Config",
+  },
   access: {
     read: anyone,
     update: admins,

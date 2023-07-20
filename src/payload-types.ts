@@ -147,8 +147,28 @@ export interface RegistrationForm {
   description?: {
     [k: string]: unknown;
   }[];
+  links?: {
+    link: {
+      type?: 'reference' | 'custom';
+      newTab?: boolean;
+      reference:
+        | {
+            value: string | Page;
+            relationTo: 'pages';
+          }
+        | {
+            value: string | Team;
+            relationTo: 'teams';
+          };
+      url: string;
+      label: string;
+      appearance?: 'primary' | 'ghost';
+    };
+    id?: string;
+  }[];
   updatedAt: string;
   createdAt: string;
+  _status?: 'draft' | 'published';
 }
 export interface User {
   id: string;
