@@ -45,7 +45,7 @@ const Users: CollectionConfig = {
   admin: {
     useAsTitle: "name",
     defaultColumns: ["name", "email"],
-    group: "Settings",
+    group: "Config",
   },
   access: {
     read: anyone,

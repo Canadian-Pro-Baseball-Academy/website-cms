@@ -14,15 +14,13 @@ import { Media } from "./collections/Media";
 import { Icon } from "./graphics/icon";
 import { Logo } from "./graphics/logo";
 import { Footer } from "./globals/Footer";
-import { MainMenu } from "./globals/MainMenu";
-import { RegistrationForms } from "./collections/RegistrationForms";
+import { Header } from "./globals/Header";
 
 export default buildConfig({
   admin: {
     user: Users.slug,
     css: path.resolve(__dirname, "./styles/globals.scss"),
     components: {
-      afterNavLinks: [GenerateTeams],
       graphics: {
         Icon,
         Logo,
@@ -30,12 +28,11 @@ export default buildConfig({
     },
     meta: {
       favicon: "/assets/favicon.svg",
-      ogImage: "https://calgarybisons.payloadcms.app/assets/og-image.svg",
       titleSuffix: " | Calgary Bisons CMS",
     },
   },
-  collections: [Coaches, Media, Pages, RegistrationForms, Teams, Users],
-  globals: [Footer, MainMenu],
+  collections: [Coaches, Media, Pages, Teams, Users],
+  globals: [Footer, Header],
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
   cors: "*",
   csrf: [
@@ -58,7 +55,7 @@ export default buildConfig({
     redirects({
       overrides: {
         admin: {
-          group: "Settings",
+          group: "Config",
         },
         access: {
           read: admins,

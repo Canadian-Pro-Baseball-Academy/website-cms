@@ -1,0 +1,33 @@
+@import '~payload/scss';
+
+.custom-list {
+	// margin-bottom: base(1.5);
+	&__pill {
+        margin-right: base(0.5) !important;
+	}
+
+    &__loading {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #000;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+	&__instructions {
+		list-style: decimal;
+		margin-bottom: base(0.5);
+
+		& li {
+			width: 100%;
+		}
+	}
+
+	& a:hover {
+		opacity: 0.85;
+	}
+}
