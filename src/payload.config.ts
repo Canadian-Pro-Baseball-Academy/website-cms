@@ -21,7 +21,6 @@ export default buildConfig({
     user: Users.slug,
     css: path.resolve(__dirname, "./styles/globals.scss"),
     components: {
-      afterNavLinks: [GenerateTeams],
       graphics: {
         Icon,
         Logo,
@@ -29,7 +28,6 @@ export default buildConfig({
     },
     meta: {
       favicon: "/assets/favicon.svg",
-      ogImage: "https://calgarybisons.payloadcms.app/assets/og-image.svg",
       titleSuffix: " | Calgary Bisons CMS",
     },
   },

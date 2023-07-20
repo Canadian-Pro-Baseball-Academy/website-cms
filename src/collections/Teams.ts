@@ -1,5 +1,6 @@
 import { CollectionConfig } from "payload/types";
 import BeforeTeams from "../components/BeforeTeams";
+import { TeamsList } from "../components/teams/GenerateRosters";
 
 const PlayerFields: CollectionConfig["fields"] = [
   {
@@ -83,6 +84,13 @@ export const Teams: CollectionConfig = {
   admin: {
     useAsTitle: "name",
     defaultColumns: ["name", "_status", "updatedAt", "createdAt"],
+    components: {
+      views: {
+        List: TeamsList,
+      },
+    },
+    description:
+      "For a new season you can genereate all the teams with the button above.\n  **NOTE** The generation is not perfect, manual corrections may be needed, due to this the generator does NOT overwrite any existing teams, it will only create new ones.  If you need to delete a team, you can do so manually.",
     group: "Content",
   },
   versions: {
