@@ -22,6 +22,7 @@ export const Header: GlobalConfig = {
       tabs: [
         {
           label: "Top Bar",
+          name: "topBar",
           fields: [
             richText({
               admin: {
@@ -33,6 +34,7 @@ export const Header: GlobalConfig = {
         },
         {
           label: "Main Menu",
+          name: "mainMenu",
           fields: [
             {
               name: "items",
