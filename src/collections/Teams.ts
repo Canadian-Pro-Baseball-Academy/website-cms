@@ -134,6 +134,9 @@ export const Teams: CollectionConfig = {
         components: {
           RowLabel: ({ data }) => {
             const { firstName, lastName, number, homeTown, positions } = data;
+
+            if (!firstName || !lastName || !number) return "New Player";
+
             const baseName = `${
               number ? `#${number} ` : ""
             }${firstName} ${lastName}`;

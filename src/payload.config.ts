@@ -7,14 +7,14 @@ import redirects from "@payloadcms/plugin-redirects";
 import { admins } from "./access/admins";
 import nestedDocs from "@payloadcms/plugin-nested-docs";
 import { Teams } from "./collections/Teams";
-import BeforeTeams from "./components/BeforeTeams";
-import GenerateTeams from "./components/AfterLinks/generate-teams";
 import { Coaches } from "./collections/Coaches";
 import { Media } from "./collections/Media";
 import { Icon } from "./graphics/icon";
 import { Logo } from "./graphics/logo";
 import { Footer } from "./globals/Footer";
 import { Header } from "./globals/Header";
+import { Globals } from "./globals/Globals";
+import seo from "@payloadcms/plugin-seo";
 
 export default buildConfig({
   admin: {
@@ -32,7 +32,7 @@ export default buildConfig({
     },
   },
   collections: [Coaches, Media, Pages, Teams, Users],
-  globals: [Footer, Header],
+  globals: [Globals, Footer, Header],
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
   cors: "*",
   csrf: [
@@ -51,6 +51,20 @@ export default buildConfig({
       generateLabel: (_, doc) => doc.title as string,
       generateURL: (docs) =>
         docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
+    }),
+    seo({
+      collections: ["pages"],
+      globals: ["site-settings"],
+      uploadsCollection: "media",
+      tabbedUI: true,
+      fields: [
+        {
+          name: "tagline",
+          type: "text",
+        },
+      ],
+      // @ts-expect-error
+      generateTitle: ({ doc }) => `${doc.title.value} | Calgary Bisons`,
     }),
     redirects({
       overrides: {

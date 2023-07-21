@@ -2,8 +2,6 @@ import React, { Fragment } from "react";
 import { List, type Props } from "payload/components/views/List";
 import { Pill } from "payload/components";
 
-import "./index.scss";
-
 const baseClass = "custom-list";
 
 export const TeamsList: React.FC<Props> = (props) => {

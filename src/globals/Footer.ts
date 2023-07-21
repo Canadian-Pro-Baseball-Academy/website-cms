@@ -14,38 +14,6 @@ export const Footer: GlobalConfig = {
   },
   fields: [
     {
-      name: "socialLinks",
-      type: "group",
-      fields: [
-        {
-          type: "row",
-          fields: [
-            {
-              name: "facebook",
-              type: "text",
-            },
-            {
-              name: "instagram",
-              type: "text",
-            },
-          ],
-        },
-        {
-          type: "row",
-          fields: [
-            {
-              name: "twitter",
-              type: "text",
-            },
-            {
-              name: "github",
-              type: "text",
-            },
-          ],
-        },
-      ],
-    },
-    {
       name: "columns",
       type: "array",
       minRows: 1,
