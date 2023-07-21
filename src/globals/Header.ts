@@ -2,6 +2,10 @@ import { GlobalConfig } from "payload/types";
 import { admins } from "../access/admins";
 import { anyone } from "../access/anyone";
 import link from "../fields/link";
+import { MenuHighlight } from "../blocks/MenuHighlight";
+import { MenuLink } from "../blocks/MenuLink";
+import { MenuColumn } from "../blocks/MenuColumn";
+import { richText } from "../fields/richText";
 
 export const Header: GlobalConfig = {
   slug: "header",
@@ -14,73 +18,81 @@ export const Header: GlobalConfig = {
   },
   fields: [
     {
-      name: "right",
-      label: "Right Side Menu",
-      labels: {
-        singular: "Right Side Menu Item",
-        plural: "Right Side Menu Items",
-      },
-      type: "array",
-      minRows: 1,
-      maxRows: 6,
-      fields: [
+      type: "tabs",
+      tabs: [
         {
-          name: "type",
-          label: "Is this a single link? Or a dropdown?",
-          type: "radio",
-          options: [
-            {
-              label: "Single Link",
-              value: "single",
-            },
-            {
-              label: "Dropdown Menu",
-              value: "dropdown",
-            },
-          ],
-          defaultValue: "single",
-        },
-        link({
-          appearances: false,
-          overrides: {
-            admin: {
-              condition: (_, siblingData) => siblingData?.type === "single",
-            },
-          },
-        }),
-        {
-          name: "dropdownItems",
-          type: "array",
+          label: "Top Bar",
           fields: [
-            link({
-              appearances: false,
-              enableDescription: true,
+            richText({
+              admin: {
+                elements: [],
+                leaves: ["bold", "underline", "italic"],
+              },
             }),
           ],
-          admin: {
-            condition: (_, siblingData) => siblingData?.type === "dropdown",
-            components: {
-              RowLabel: ({ data }) => {
-                return data?.link.label;
-              },
-            },
-          },
         },
-      ],
-    },
-    {
-      name: "left",
-      label: "Left Side Menu",
-      labels: {
-        singular: "Left Side Menu Item",
-        plural: "Left Side Menu Items",
-      },
-      type: "array",
-      maxRows: 3,
-      fields: [
-        link({
-          appearances: ["primary", "secondary", "outline", "ghost", "link"],
-        }),
+        {
+          label: "Main Menu",
+          fields: [
+            {
+              name: "items",
+              type: "array",
+              maxRows: 6,
+              fields: [
+                {
+                  name: "type",
+                  type: "radio",
+                  defaultValue: "single",
+                  options: [
+                    {
+                      label: "Single Link",
+                      value: "single",
+                    },
+                    {
+                      label: "Dropdown Menu",
+                      value: "dropdown",
+                    },
+                  ],
+                },
+                {
+                  name: "label",
+                  type: "text",
+                  required: true,
+                },
+                link({
+                  appearances: false,
+                  disableLabel: true,
+                  overrides: {
+                    admin: {
+                      condition: (_, siblingData) =>
+                        siblingData?.type === "single",
+                    },
+                  },
+                }),
+                {
+                  name: "menu",
+                  type: "group",
+                  label: false,
+                  fields: [
+                    {
+                      name: "blocks",
+                      labels: {
+                        singular: "Menu Block",
+                        plural: "Menu Blocks",
+                      },
+                      type: "blocks",
+                      blocks: [MenuHighlight, MenuLink, MenuColumn],
+                    },
+                  ],
+                  admin: {
+                    condition: (_, siblingData) =>
+                      siblingData?.type === "dropdown",
+                  },
+                },
+              ],
+            },
+          ],
+        },
       ],
     },
   ],
