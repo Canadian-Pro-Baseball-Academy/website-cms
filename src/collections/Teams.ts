@@ -1,6 +1,7 @@
 import { CollectionConfig } from "payload/types";
 import BeforeTeams from "../components/BeforeTeams";
 import { TeamsList } from "../components/teams/GenerateRosters";
+import { anyone } from "../access/anyone";
 
 const PlayerFields: CollectionConfig["fields"] = [
   {
@@ -95,6 +96,9 @@ export const Teams: CollectionConfig = {
   },
   versions: {
     drafts: true,
+  },
+  access: {
+    read: anyone,
   },
   fields: [
     {

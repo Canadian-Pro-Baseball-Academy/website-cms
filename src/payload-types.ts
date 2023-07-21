@@ -233,7 +233,7 @@ export interface Header {
     }[];
   };
   mainMenu: {
-    items?: {
+    items: {
       type?: 'single' | 'dropdown';
       label: string;
       link?: {
