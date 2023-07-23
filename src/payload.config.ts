@@ -59,8 +59,12 @@ export default buildConfig({
       tabbedUI: true,
       fields: [
         {
-          name: "tagline",
+          name: "keywords",
+          label: "Keywords",
           type: "text",
+          admin: {
+            description: "Please write in a comma seperated list.",
+          },
         },
       ],
       // @ts-expect-error
