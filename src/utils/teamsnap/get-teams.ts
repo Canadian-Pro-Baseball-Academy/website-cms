@@ -1,12 +1,14 @@
 import payload from "payload";
 import { AGES } from "./utils";
 import { getRosterById } from "./get-rosters";
+import { getTeamData } from "./get-team-data";
 
 export interface iTeamsAPI {
   [key: string]: {
     teams: {
       id: number;
       name: string;
+      webcal: string;
       roster?: any;
     }[];
   };
@@ -92,10 +94,12 @@ export async function getTeams(): Promise<iTeamsAPI> {
             const teamId = item.data.find((data: any) => data.name === "id");
 
             const rosters = await getRosterById(teamId.value);
+            const teamData = await getTeamData(teamId.value);
 
             return {
               id: teamId.value,
               name: teamName.value,
+              webcal: teamData.links.webCal,
               roster: rosters,
             };
           })

@@ -100,7 +100,7 @@ export interface Page {
     title?: string;
     description?: string;
     image?: string | Media;
-    tagline?: string;
+    keywords?: string;
   };
   title: string;
   slug?: string;
@@ -121,6 +121,7 @@ export interface Team {
   coaches?: string[] | Coach[];
   teamPhoto?: string | Media;
   teamsnapId: string;
+  webCalendar?: string;
   roster?: {
     firstName: string;
     lastName: string;
@@ -193,7 +194,7 @@ export interface SiteSetting {
     title?: string;
     description?: string;
     image?: string | Media;
-    tagline?: string;
+    keywords?: string;
   };
   updatedAt?: string;
   createdAt?: string;

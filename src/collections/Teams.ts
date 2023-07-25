@@ -131,6 +131,15 @@ export const Teams: CollectionConfig = {
       },
     },
     {
+      name: "webCalendar",
+      type: "text",
+      admin: {
+        components: {
+          Field: () => null,
+        },
+      },
+    },
+    {
       name: "roster",
       type: "array",
       fields: PlayerFields,

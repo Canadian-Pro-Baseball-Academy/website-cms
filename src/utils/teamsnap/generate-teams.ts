@@ -15,6 +15,7 @@ export const generateTeams = async (payload: Payload) => {
         data: {
           name: team.name,
           teamsnapId: team.id.toString(),
+          webCalendar: team.webcal,
           roster: team.roster.map((player: any) => ({
             firstName: player.firstName,
             lastName: player.lastName,
