@@ -37,7 +37,7 @@ export const Coaches: CollectionConfig = {
           label: "Main Information",
           fields: [
             {
-              name: "Role",
+              name: "role",
               type: "group",
               fields: [
                 {
@@ -71,6 +71,17 @@ export const Coaches: CollectionConfig = {
                       RowLabel: ({ data }) => {
                         return data.role;
                       },
+                    },
+                  },
+                },
+                {
+                  name: "joinDate",
+                  label: "Join Date",
+                  type: "date",
+                  admin: {
+                    description: "When did this coach join the organization?",
+                    date: {
+                      pickerAppearance: "monthOnly",
                     },
                   },
                 },
