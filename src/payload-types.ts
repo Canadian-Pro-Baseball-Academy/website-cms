@@ -25,12 +25,13 @@ export interface Coach {
   id: string;
   name: string;
   headshot: string | Media;
-  Role?: {
+  role?: {
     title?: string;
     roles?: {
       role: string;
       id?: string;
     }[];
+    joinDate?: number;
   };
   socials?: {
     twitter?: string;

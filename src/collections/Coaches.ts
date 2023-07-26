@@ -77,12 +77,11 @@ export const Coaches: CollectionConfig = {
                 {
                   name: "joinDate",
                   label: "Join Date",
-                  type: "date",
+                  type: "number",
+                  min: 2000,
+                  max: 2030,
                   admin: {
                     description: "When did this coach join the organization?",
-                    date: {
-                      pickerAppearance: "monthOnly",
-                    },
                   },
                 },
               ],
