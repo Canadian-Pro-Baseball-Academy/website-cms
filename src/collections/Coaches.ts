@@ -3,6 +3,7 @@ import { richText } from "../fields/richText";
 import richTextKicker from "../fields/richText/kicker";
 import richTextLargeBody from "../fields/richText/largeBody";
 import hr from "../fields/richText/hr";
+import { anyone } from "../access/anyone";
 
 export const Coaches: CollectionConfig = {
   slug: "coaches",
@@ -10,6 +11,9 @@ export const Coaches: CollectionConfig = {
     useAsTitle: "name",
     defaultColumns: ["name", "updatedAt"],
     group: "Content",
+  },
+  access: {
+    read: anyone,
   },
   versions: {
     drafts: true,
