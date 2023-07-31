@@ -31,14 +31,25 @@ export const PageSettings: GlobalConfig = {
               type: "group",
               fields: [
                 {
-                  name: "coachesOrder",
-                  label: "Head Coaches",
+                  name: "mainCoaches",
+                  label: "Main Coaches",
                   type: "relationship",
                   hasMany: true,
                   relationTo: "coaches",
                   admin: {
                     description:
                       "Select the important coaches that we would like to highlight. Note: order matters, the order that you select the coaches in will determine the order they show up on the page",
+                  },
+                },
+                {
+                  name: "subsidaryCoaches",
+                  label: "Subsidary Coaches",
+                  type: "relationship",
+                  hasMany: true,
+                  relationTo: "coaches",
+                  admin: {
+                    description:
+                      "Select any other coach that we would like to highlight. Note: Only there name and organizational role will be displayed",
                   },
                 },
               ],
