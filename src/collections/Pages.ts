@@ -36,7 +36,7 @@ export const Pages: CollectionConfig = {
       tabs: [
         {
           label: "Hero",
-          fields: [hero],
+          fields: [hero()],
         },
         {
           label: "Content",

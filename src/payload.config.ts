@@ -15,6 +15,7 @@ import { Footer } from "./globals/Footer";
 import { Header } from "./globals/Header";
 import { Globals } from "./globals/Globals";
 import seo from "@payloadcms/plugin-seo";
+import { PageSettings } from "./globals/PageSettings";
 
 export default buildConfig({
   admin: {
@@ -32,7 +33,7 @@ export default buildConfig({
     },
   },
   collections: [Coaches, Media, Pages, Teams, Users],
-  globals: [Globals, Footer, Header],
+  globals: [Globals, Footer, Header, PageSettings],
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
   cors: "*",
   csrf: [
@@ -73,7 +74,7 @@ export default buildConfig({
     redirects({
       overrides: {
         admin: {
-          group: "Config",
+          group: "Admin",
         },
         access: {
           read: admins,
