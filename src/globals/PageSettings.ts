@@ -3,6 +3,8 @@ import { anyone } from "../access/anyone";
 import { editors } from "../access/editors";
 import { hero } from "../fields/hero";
 import { revalidatePage } from "../hooks/revalidatePage";
+import { GallerySlider } from "../blocks/GallerySlider";
+import { GalleryImages } from "../blocks/GalleryImages";
 
 export const PageSettings: GlobalConfig = {
   slug: "page-settings",
@@ -53,6 +55,22 @@ export const PageSettings: GlobalConfig = {
                   },
                 },
               ],
+            },
+          ],
+        },
+        {
+          name: "gallery",
+          label: "Gallery",
+          fields: [
+            hero({ disableLabel: false }),
+            {
+              name: "layout",
+              labels: {
+                singular: "Gallery Block",
+                plural: "Gallery Blocks",
+              },
+              type: "blocks",
+              blocks: [GallerySlider, GalleryImages],
             },
           ],
         },
