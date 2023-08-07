@@ -55,7 +55,7 @@ export default buildConfig({
         docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
     }),
     seo({
-      collections: ["pages"],
+      collections: ["pages", "page-settings"],
       globals: ["site-settings"],
       uploadsCollection: "media",
       tabbedUI: true,

@@ -11,6 +11,7 @@ export interface Config {
     coaches: Coach;
     media: Media;
     pages: Page;
+    'page-settings': PageSetting;
     teams: Team;
     users: User;
     redirects: Redirect;
@@ -19,7 +20,6 @@ export interface Config {
     'site-settings': SiteSetting;
     footer: Footer;
     header: Header;
-    'page-settings': PageSetting;
   };
 }
 export interface Coach {
@@ -145,6 +145,85 @@ export interface Team {
     homeTown?: string;
     id?: string;
   }[];
+  updatedAt: string;
+  createdAt: string;
+  _status?: 'draft' | 'published';
+}
+export interface PageSetting {
+  id: string;
+  hero: {
+    type: 'default' | 'contentMedia' | 'form' | 'home' | 'registration';
+    richText?: {
+      [k: string]: unknown;
+    }[];
+    links?: {
+      link: {
+        type?: 'reference' | 'custom';
+        newTab?: boolean;
+        reference:
+          | {
+              value: string | Page;
+              relationTo: 'pages';
+            }
+          | {
+              value: string | Team;
+              relationTo: 'teams';
+            };
+        url: string;
+        label: string;
+        appearance?: 'primary' | 'secondary';
+      };
+      id?: string;
+    }[];
+    media: string | Media;
+    values?: {
+      value: string;
+      id?: string;
+    }[];
+    previewTest?: string;
+  };
+  gallery?: {
+    gallery?: (
+      | {
+          sliderFields: {
+            useLeadingHeader?: boolean;
+            leadingHeader?: {
+              [k: string]: unknown;
+            }[];
+            slides: {
+              image: string | Media;
+              id?: string;
+            }[];
+          };
+          id?: string;
+          blockName?: string;
+          blockType: 'gallery-slider';
+        }
+      | {
+          imagesFields: {
+            useLeadingHeader?: boolean;
+            leadingHeader?: {
+              [k: string]: unknown;
+            }[];
+            columns?: '1' | '2' | '3' | '4' | '5';
+            images: string[] | Media[];
+          };
+          id?: string;
+          blockName?: string;
+          blockType: 'gallery-images';
+        }
+    )[];
+  };
+  coachingStaff?: {
+    mainCoaches?: string[] | Coach[];
+    subsidaryCoaches?: string[] | Coach[];
+  };
+  news?: {
+    test?: string;
+  };
+  type: 'gallery' | 'coaching-staff' | 'news';
+  title: string;
+  slug?: string;
   updatedAt: string;
   createdAt: string;
   _status?: 'draft' | 'published';
@@ -327,111 +406,6 @@ export interface Header {
       };
       id?: string;
     }[];
-  };
-  updatedAt?: string;
-  createdAt?: string;
-}
-export interface PageSetting {
-  id: string;
-  coachingStaff: {
-    hero: {
-      type: 'default' | 'contentMedia' | 'form' | 'home' | 'registration';
-      richText?: {
-        [k: string]: unknown;
-      }[];
-      links?: {
-        link: {
-          type?: 'reference' | 'custom';
-          newTab?: boolean;
-          reference:
-            | {
-                value: string | Page;
-                relationTo: 'pages';
-              }
-            | {
-                value: string | Team;
-                relationTo: 'teams';
-              };
-          url: string;
-          label: string;
-          appearance?: 'primary' | 'secondary';
-        };
-        id?: string;
-      }[];
-      media: string | Media;
-      values?: {
-        value: string;
-        id?: string;
-      }[];
-      previewTest?: string;
-    };
-    coaches?: {
-      mainCoaches?: string[] | Coach[];
-      subsidaryCoaches?: string[] | Coach[];
-    };
-  };
-  gallery: {
-    hero: {
-      type: 'default' | 'contentMedia' | 'form' | 'home' | 'registration';
-      richText?: {
-        [k: string]: unknown;
-      }[];
-      links?: {
-        link: {
-          type?: 'reference' | 'custom';
-          newTab?: boolean;
-          reference:
-            | {
-                value: string | Page;
-                relationTo: 'pages';
-              }
-            | {
-                value: string | Team;
-                relationTo: 'teams';
-              };
-          url: string;
-          label: string;
-          appearance?: 'primary' | 'secondary';
-        };
-        id?: string;
-      }[];
-      media: string | Media;
-      values?: {
-        value: string;
-        id?: string;
-      }[];
-      previewTest?: string;
-    };
-    layout?: (
-      | {
-          sliderFields: {
-            useLeadingHeader?: boolean;
-            leadingHeader?: {
-              [k: string]: unknown;
-            }[];
-            slides: {
-              image: string | Media;
-              id?: string;
-            }[];
-          };
-          id?: string;
-          blockName?: string;
-          blockType: 'gallery-slider';
-        }
-      | {
-          imagesFields: {
-            useLeadingHeader?: boolean;
-            leadingHeader?: {
-              [k: string]: unknown;
-            }[];
-            columns?: '1' | '2' | '3' | '4' | '5';
-            images: string[] | Media[];
-          };
-          id?: string;
-          blockName?: string;
-          blockType: 'gallery-images';
-        }
-    )[];
   };
   updatedAt?: string;
   createdAt?: string;

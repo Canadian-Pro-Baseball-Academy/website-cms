@@ -83,7 +83,12 @@ export const PageSettings: CollectionConfig = {
               admin: {
                 condition: (_, { type } = {}) => type === "news",
               },
-              fields: [],
+              fields: [
+                {
+                  type: "text",
+                  name: "test",
+                },
+              ],
             },
           ],
         },
