@@ -3,12 +3,16 @@ import { hero } from "../fields/hero";
 import { GalleryImages } from "../blocks/GalleryImages";
 import { GallerySlider } from "../blocks/GallerySlider";
 import { slug } from "../fields/slug";
+import { anyone } from "../access/anyone";
 
 export const PageSettings: CollectionConfig = {
   slug: "page-settings",
   admin: {
     useAsTitle: "title",
     group: "Config",
+  },
+  access: {
+    read: anyone,
   },
   versions: {
     drafts: true,
