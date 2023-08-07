@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@payloadcms/plugin-cloud": "^2.0.0",
+    "@payloadcms/plugin-form-builder": "^1.0.15",
     "@payloadcms/plugin-nested-docs": "^1.0.5",
     "@payloadcms/plugin-redirects": "^1.0.0",
     "@payloadcms/plugin-seo": "^1.0.14-canary.0",

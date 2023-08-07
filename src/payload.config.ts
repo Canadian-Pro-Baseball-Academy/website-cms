@@ -15,7 +15,8 @@ import { Footer } from "./globals/Footer";
 import { Header } from "./globals/Header";
 import { Globals } from "./globals/Globals";
 import seo from "@payloadcms/plugin-seo";
-import { PageSettings } from "./globals/PageSettings";
+import formBuilder from "@payloadcms/plugin-form-builder";
+import { PageSettings } from "./collections/PageSettings";
 
 export default buildConfig({
   admin: {
@@ -32,8 +33,8 @@ export default buildConfig({
       titleSuffix: " | Calgary Bisons CMS",
     },
   },
-  collections: [Coaches, Media, Pages, Teams, Users],
-  globals: [Globals, Footer, Header, PageSettings],
+  collections: [Coaches, Media, Pages, PageSettings, Teams, Users],
+  globals: [Globals, Footer, Header],
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
   cors: "*",
   csrf: [
