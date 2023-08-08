@@ -130,36 +130,39 @@ export interface Page {
                   blockType: 'map';
                 }
               | {
-                  columns?: {
-                    width: 'oneThird' | 'half' | 'twoThirds' | 'full';
-                    alignment: 'left' | 'center' | 'right';
-                    richText?: {
-                      [k: string]: unknown;
-                    }[];
-                    links?: {
-                      link: {
-                        type?: 'reference' | 'custom';
-                        newTab?: boolean;
-                        reference:
-                          | {
-                              value: string | Page;
-                              relationTo: 'pages';
-                            }
-                          | {
-                              value: string | PageSetting;
-                              relationTo: 'page-settings';
-                            }
-                          | {
-                              value: string | Team;
-                              relationTo: 'teams';
-                            };
-                        url: string;
-                        label: string;
-                      };
+                  contentFields?: {
+                    columns?: {
+                      width: 'oneThird' | 'half' | 'twoThirds' | 'full';
+                      alignment: 'left' | 'center' | 'right';
+                      richText?: {
+                        [k: string]: unknown;
+                      }[];
+                      links?: {
+                        link: {
+                          type?: 'reference' | 'custom';
+                          newTab?: boolean;
+                          reference:
+                            | {
+                                value: string | Page;
+                                relationTo: 'pages';
+                              }
+                            | {
+                                value: string | PageSetting;
+                                relationTo: 'page-settings';
+                              }
+                            | {
+                                value: string | Team;
+                                relationTo: 'teams';
+                              };
+                          url: string;
+                          label: string;
+                          appearance?: 'primary' | 'secondary' | 'destructive' | 'outline' | 'ghost' | 'link';
+                        };
+                        id?: string;
+                      }[];
                       id?: string;
                     }[];
-                    id?: string;
-                  }[];
+                  };
                   id?: string;
                   blockName?: string;
                   blockType: 'content';
