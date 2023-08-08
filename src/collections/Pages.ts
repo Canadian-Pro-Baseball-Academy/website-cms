@@ -7,6 +7,7 @@ import { formatPreviewURL } from "../utils/format-preview";
 import { anyone } from "../access/anyone";
 import { revalidatePage } from "../hooks/revalidatePage";
 import { Map } from "../blocks/Map";
+import { ContentGrid } from "../blocks/ContentGrid";
 
 export const Pages: CollectionConfig = {
   slug: "pages",
@@ -48,7 +49,7 @@ export const Pages: CollectionConfig = {
               type: "blocks",
               minRows: 1,
               localized: true,
-              blocks: [Map],
+              blocks: [ContentGrid, Map],
             },
           ],
         },

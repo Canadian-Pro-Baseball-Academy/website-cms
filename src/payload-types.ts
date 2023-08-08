@@ -103,20 +103,92 @@ export interface Page {
     }[];
     previewTest?: string;
   };
-  layout?: {
-    /**
-     * @minItems 2
-     * @maxItems 2
-     */
-    map?: [number, number];
-    options: {
-      zoom: number;
-      animation: 'none' | 'rotate';
-    };
-    id?: string;
-    blockName?: string;
-    blockType: 'map';
-  }[];
+  layout?: (
+    | {
+        contentGridFields?: {
+          useLeadingHeader?: boolean;
+          leadingHeader?: {
+            [k: string]: unknown;
+          }[];
+          columns?: {
+            width: 'oneThird' | 'half' | 'twoThirds' | 'full';
+            content?: (
+              | {
+                  mapFields: {
+                    /**
+                     * @minItems 2
+                     * @maxItems 2
+                     */
+                    map?: [number, number];
+                    options: {
+                      zoom: number;
+                      animation: 'none' | 'rotate';
+                    };
+                  };
+                  id?: string;
+                  blockName?: string;
+                  blockType: 'map';
+                }
+              | {
+                  columns?: {
+                    width: 'oneThird' | 'half' | 'twoThirds' | 'full';
+                    alignment: 'left' | 'center' | 'right';
+                    richText?: {
+                      [k: string]: unknown;
+                    }[];
+                    links?: {
+                      link: {
+                        type?: 'reference' | 'custom';
+                        newTab?: boolean;
+                        reference:
+                          | {
+                              value: string | Page;
+                              relationTo: 'pages';
+                            }
+                          | {
+                              value: string | PageSetting;
+                              relationTo: 'page-settings';
+                            }
+                          | {
+                              value: string | Team;
+                              relationTo: 'teams';
+                            };
+                        url: string;
+                        label: string;
+                      };
+                      id?: string;
+                    }[];
+                    id?: string;
+                  }[];
+                  id?: string;
+                  blockName?: string;
+                  blockType: 'content';
+                }
+            )[];
+            id?: string;
+          }[];
+        };
+        id?: string;
+        blockName?: string;
+        blockType: 'content-grid';
+      }
+    | {
+        mapFields: {
+          /**
+           * @minItems 2
+           * @maxItems 2
+           */
+          map?: [number, number];
+          options: {
+            zoom: number;
+            animation: 'none' | 'rotate';
+          };
+        };
+        id?: string;
+        blockName?: string;
+        blockType: 'map';
+      }
+  )[];
   meta?: {
     title?: string;
     description?: string;
