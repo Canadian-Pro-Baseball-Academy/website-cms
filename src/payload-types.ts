@@ -83,6 +83,10 @@ export interface Page {
               relationTo: 'pages';
             }
           | {
+              value: string | PageSetting;
+              relationTo: 'page-settings';
+            }
+          | {
               value: string | Team;
               relationTo: 'teams';
             };
@@ -99,6 +103,20 @@ export interface Page {
     }[];
     previewTest?: string;
   };
+  layout?: {
+    /**
+     * @minItems 2
+     * @maxItems 2
+     */
+    map?: [number, number];
+    options: {
+      zoom: number;
+      animation: 'none' | 'rotate';
+    };
+    id?: string;
+    blockName?: string;
+    blockType: 'map';
+  }[];
   meta?: {
     title?: string;
     description?: string;
@@ -112,37 +130,6 @@ export interface Page {
     doc?: string | Page;
     url?: string;
     label?: string;
-    id?: string;
-  }[];
-  updatedAt: string;
-  createdAt: string;
-  _status?: 'draft' | 'published';
-}
-export interface Team {
-  id: string;
-  name: string;
-  coaches?: string[] | Coach[];
-  teamPhoto?: string | Media;
-  teamsnapId: string;
-  webCalendar?: string;
-  roster?: {
-    firstName: string;
-    lastName: string;
-    number?: string;
-    positions?: (
-      | 'pitcher'
-      | 'catcher'
-      | 'firstBase'
-      | 'secondBase'
-      | 'thirdBase'
-      | 'shortstop'
-      | 'middleInfield'
-      | 'cornerInfield'
-      | 'infield'
-      | 'outfield'
-      | 'utility'
-    )[];
-    homeTown?: string;
     id?: string;
   }[];
   updatedAt: string;
@@ -164,6 +151,10 @@ export interface PageSetting {
           | {
               value: string | Page;
               relationTo: 'pages';
+            }
+          | {
+              value: string | PageSetting;
+              relationTo: 'page-settings';
             }
           | {
               value: string | Team;
@@ -221,9 +212,46 @@ export interface PageSetting {
   news?: {
     test?: string;
   };
+  meta?: {
+    title?: string;
+    description?: string;
+    image?: string | Media;
+    keywords?: string;
+  };
   type: 'gallery' | 'coaching-staff' | 'news';
   title: string;
   slug?: string;
+  updatedAt: string;
+  createdAt: string;
+  _status?: 'draft' | 'published';
+}
+export interface Team {
+  id: string;
+  name: string;
+  coaches?: string[] | Coach[];
+  teamPhoto?: string | Media;
+  teamsnapId: string;
+  webCalendar?: string;
+  roster?: {
+    firstName: string;
+    lastName: string;
+    number?: string;
+    positions?: (
+      | 'pitcher'
+      | 'catcher'
+      | 'firstBase'
+      | 'secondBase'
+      | 'thirdBase'
+      | 'shortstop'
+      | 'middleInfield'
+      | 'cornerInfield'
+      | 'infield'
+      | 'outfield'
+      | 'utility'
+    )[];
+    homeTown?: string;
+    id?: string;
+  }[];
   updatedAt: string;
   createdAt: string;
   _status?: 'draft' | 'published';
@@ -295,6 +323,10 @@ export interface Footer {
               relationTo: 'pages';
             }
           | {
+              value: string | PageSetting;
+              relationTo: 'page-settings';
+            }
+          | {
               value: string | Team;
               relationTo: 'teams';
             };
@@ -328,6 +360,10 @@ export interface Header {
               relationTo: 'pages';
             }
           | {
+              value: string | PageSetting;
+              relationTo: 'page-settings';
+            }
+          | {
               value: string | Team;
               relationTo: 'teams';
             };
@@ -344,6 +380,10 @@ export interface Header {
                   | {
                       value: string | Page;
                       relationTo: 'pages';
+                    }
+                  | {
+                      value: string | PageSetting;
+                      relationTo: 'page-settings';
                     }
                   | {
                       value: string | Team;
@@ -367,6 +407,10 @@ export interface Header {
                       relationTo: 'pages';
                     }
                   | {
+                      value: string | PageSetting;
+                      relationTo: 'page-settings';
+                    }
+                  | {
                       value: string | Team;
                       relationTo: 'teams';
                     };
@@ -388,6 +432,10 @@ export interface Header {
                     | {
                         value: string | Page;
                         relationTo: 'pages';
+                      }
+                    | {
+                        value: string | PageSetting;
+                        relationTo: 'page-settings';
                       }
                     | {
                         value: string | Team;

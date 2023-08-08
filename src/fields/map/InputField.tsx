@@ -3,8 +3,28 @@ import { Props } from "payload/components/fields/Number";
 import { Label, useFieldType } from "payload/components/forms";
 import { usePreferences } from "payload/components/preferences";
 
-import maplibregl from "maplibre-gl";
+import maplibregl, { StyleSpecification } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
+
+const MapStyle: StyleSpecification = {
+  version: 8,
+  sources: {
+    osm: {
+      type: "raster",
+      tiles: ["https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"],
+      tileSize: 256,
+      attribution: "&copy; OpenStreetMap Contributors",
+      maxzoom: 19,
+    },
+  },
+  layers: [
+    {
+      id: "osm",
+      type: "raster",
+      source: "osm", // This must match the source key above
+    },
+  ],
+};
 
 const InputField: React.FC<Props> = (props) => {
   const { path, label, required } = props;
@@ -26,7 +46,8 @@ const InputField: React.FC<Props> = (props) => {
     map.current = new maplibregl.Map({
       container: mapContainer.current,
       // Note this styling may have to change depending on the map style you want to use
-      style: `https://api.maptiler.com/maps/streets-v2/style.json?key=${API_KEY}`,
+      // style: `https://api.maptiler.com/maps/streets-v2/style.json?key=${API_KEY}`,
+      style: MapStyle,
       center: [lng, lat],
       zoom: zoom,
     });

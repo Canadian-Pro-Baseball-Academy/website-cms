@@ -21,6 +21,7 @@ export const Map: Block = {
               name: "zoom",
               label: "Zoom Level",
               type: "number",
+              required: true,
               defaultValue: 7,
               min: 1,
               max: 15,
@@ -31,6 +32,8 @@ export const Map: Block = {
             {
               name: "animation",
               type: "radio",
+              defaultValue: "none",
+              required: true,
               options: [
                 { value: "none", label: "None" },
                 { value: "rotate", label: "Rotate" },
