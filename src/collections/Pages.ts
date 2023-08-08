@@ -6,6 +6,7 @@ import { admins } from "../access/admins";
 import { formatPreviewURL } from "../utils/format-preview";
 import { anyone } from "../access/anyone";
 import { revalidatePage } from "../hooks/revalidatePage";
+import { Map } from "../blocks/Map";
 
 export const Pages: CollectionConfig = {
   slug: "pages",
@@ -40,7 +41,16 @@ export const Pages: CollectionConfig = {
         },
         {
           label: "Content",
-          fields: [],
+          fields: [
+            {
+              name: "layout",
+              label: "Layout",
+              type: "blocks",
+              minRows: 1,
+              localized: true,
+              blocks: [Map],
+            },
+          ],
         },
       ],
     },

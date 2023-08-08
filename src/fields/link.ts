@@ -100,7 +100,7 @@ const link: LinkType = ({
       name: "reference",
       label: "Document to link to",
       type: "relationship",
-      relationTo: ["pages", "teams"],
+      relationTo: ["pages", "page-settings", "teams"],
       required: true,
       maxDepth: 1,
       admin: {
