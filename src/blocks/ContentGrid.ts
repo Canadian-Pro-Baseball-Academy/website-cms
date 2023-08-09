@@ -3,6 +3,7 @@ import { blockFields } from "../fields/blockFields";
 import { richText } from "../fields/richText";
 import { Map } from "./Map";
 import Content from "./Content";
+import { GalleryImages } from "./GalleryImages";
 
 export const ContentGrid: Block = {
   slug: "content-grid",
@@ -27,13 +28,13 @@ export const ContentGrid: Block = {
           type: "array",
           minRows: 1,
           labels: {
-            singular: "Column",
-            plural: "Columns",
+            singular: "Cell",
+            plural: "Cells",
           },
           fields: [
             {
               name: "width",
-              label: "Column Width",
+              label: "Cell Width",
               type: "select",
               defaultValue: "full",
               required: true,
@@ -60,7 +61,7 @@ export const ContentGrid: Block = {
               type: "blocks",
               name: "content",
               maxRows: 1,
-              blocks: [Map, Content],
+              blocks: [Content, GalleryImages, Map],
             },
           ],
         },

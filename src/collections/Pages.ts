@@ -8,6 +8,8 @@ import { anyone } from "../access/anyone";
 import { revalidatePage } from "../hooks/revalidatePage";
 import { Map } from "../blocks/Map";
 import { ContentGrid } from "../blocks/ContentGrid";
+import { GalleryImages } from "../blocks/GalleryImages";
+import Content from "../blocks/Content";
 
 export const Pages: CollectionConfig = {
   slug: "pages",
@@ -49,7 +51,7 @@ export const Pages: CollectionConfig = {
               type: "blocks",
               minRows: 1,
               localized: true,
-              blocks: [ContentGrid, Map],
+              blocks: [Content, ContentGrid, GalleryImages, Map],
             },
           ],
         },
