@@ -86,7 +86,32 @@ const Content: ContentType = ({
     contentFields = [alignmentField, ...contentFields];
   }
 
-  let arrayContent: Block = {
+  let singleColumnFields: Field = {
+    name: "singleColumn",
+    label: false,
+    admin: {
+      hideGutter: true,
+    },
+    type: "group",
+    fields: contentFields,
+    hidden: !singleColumn,
+  };
+
+  let comlumnFields: Field = {
+    name: "columns",
+    type: "array",
+    minRows: 1,
+    labels: {
+      singular: "Column",
+      plural: "Columns",
+    },
+    fields: contentFields,
+    hidden: singleColumn,
+  };
+
+  let fields = [comlumnFields, singleColumnFields];
+
+  let Content: Block = {
     slug: "content",
     labels: {
       singular: "Content",
@@ -95,37 +120,12 @@ const Content: ContentType = ({
     fields: [
       blockFields({
         name: "contentFields",
-        fields: [
-          {
-            name: "columns",
-            type: "array",
-            minRows: 1,
-            labels: {
-              singular: "Column",
-              plural: "Columns",
-            },
-            fields: contentFields,
-          },
-        ],
+        fields: fields,
       }),
     ],
   };
 
-  let singleContent: Block = {
-    slug: "content",
-    labels: {
-      singular: "Content",
-      plural: "Content Blocks",
-    },
-    fields: [
-      blockFields({
-        name: "contentFields",
-        fields: contentFields,
-      }),
-    ],
-  };
-
-  return singleColumn ? singleContent : arrayContent;
+  return Content;
 };
 
 export default Content;
