@@ -51,7 +51,7 @@ export const Pages: CollectionConfig = {
               type: "blocks",
               minRows: 1,
               localized: true,
-              blocks: [Content, ContentGrid, GalleryImages, Map],
+              blocks: [Content(), ContentGrid, GalleryImages, Map],
             },
           ],
         },

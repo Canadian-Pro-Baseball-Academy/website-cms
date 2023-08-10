@@ -24,6 +24,27 @@ export const ContentGrid: Block = {
           },
         }),
         {
+          name: "alignment",
+          label: "Cell Alignment",
+          type: "select",
+          defaultValue: "start",
+          required: true,
+          options: [
+            {
+              label: "Start",
+              value: "start",
+            },
+            {
+              label: "Center",
+              value: "center",
+            },
+            {
+              label: "End",
+              value: "end",
+            },
+          ],
+        },
+        {
           name: "columns",
           type: "array",
           minRows: 1,
@@ -61,7 +82,15 @@ export const ContentGrid: Block = {
               type: "blocks",
               name: "content",
               maxRows: 1,
-              blocks: [Content, GalleryImages, Map],
+              blocks: [
+                Content({
+                  displayWidth: false,
+                  displayAlignment: false,
+                  singleColumn: true,
+                }),
+                GalleryImages,
+                Map,
+              ],
             },
           ],
         },
