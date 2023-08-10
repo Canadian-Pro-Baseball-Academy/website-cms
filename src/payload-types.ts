@@ -105,6 +105,44 @@ export interface Page {
   };
   layout?: (
     | {
+        contentFields?: {
+          columns?: {
+            width: 'oneThird' | 'half' | 'twoThirds' | 'full';
+            alignment: 'left' | 'center' | 'right';
+            richText?: {
+              [k: string]: unknown;
+            }[];
+            links?: {
+              link: {
+                type?: 'reference' | 'custom';
+                newTab?: boolean;
+                reference:
+                  | {
+                      value: string | Page;
+                      relationTo: 'pages';
+                    }
+                  | {
+                      value: string | PageSetting;
+                      relationTo: 'page-settings';
+                    }
+                  | {
+                      value: string | Team;
+                      relationTo: 'teams';
+                    };
+                url: string;
+                label: string;
+                appearance?: 'primary' | 'secondary' | 'destructive' | 'outline' | 'ghost' | 'link';
+              };
+              id?: string;
+            }[];
+            id?: string;
+          }[];
+        };
+        id?: string;
+        blockName?: string;
+        blockType: 'content';
+      }
+    | {
         contentGridFields?: {
           useLeadingHeader?: boolean;
           leadingHeader?: {
@@ -113,22 +151,6 @@ export interface Page {
           columns?: {
             width: 'oneThird' | 'half' | 'twoThirds' | 'full';
             content?: (
-              | {
-                  mapFields: {
-                    /**
-                     * @minItems 2
-                     * @maxItems 2
-                     */
-                    map?: [number, number];
-                    options: {
-                      zoom: number;
-                      animation: 'none' | 'rotate';
-                    };
-                  };
-                  id?: string;
-                  blockName?: string;
-                  blockType: 'map';
-                }
               | {
                   contentFields?: {
                     columns?: {
@@ -167,6 +189,35 @@ export interface Page {
                   blockName?: string;
                   blockType: 'content';
                 }
+              | {
+                  imagesFields: {
+                    useLeadingHeader?: boolean;
+                    leadingHeader?: {
+                      [k: string]: unknown;
+                    }[];
+                    columns?: '1' | '2' | '3' | '4' | '5';
+                    images: string[] | Media[];
+                  };
+                  id?: string;
+                  blockName?: string;
+                  blockType: 'gallery-images';
+                }
+              | {
+                  mapFields: {
+                    /**
+                     * @minItems 2
+                     * @maxItems 2
+                     */
+                    map?: [number, number];
+                    options: {
+                      zoom: number;
+                      animation: 'none' | 'rotate';
+                    };
+                  };
+                  id?: string;
+                  blockName?: string;
+                  blockType: 'map';
+                }
             )[];
             id?: string;
           }[];
@@ -174,6 +225,19 @@ export interface Page {
         id?: string;
         blockName?: string;
         blockType: 'content-grid';
+      }
+    | {
+        imagesFields: {
+          useLeadingHeader?: boolean;
+          leadingHeader?: {
+            [k: string]: unknown;
+          }[];
+          columns?: '1' | '2' | '3' | '4' | '5';
+          images: string[] | Media[];
+        };
+        id?: string;
+        blockName?: string;
+        blockType: 'gallery-images';
       }
     | {
         mapFields: {
