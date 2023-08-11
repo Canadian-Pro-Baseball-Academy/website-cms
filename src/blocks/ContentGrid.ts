@@ -5,6 +5,7 @@ import { Map } from "./Map";
 import Content from "./Content";
 import { GalleryImages } from "./GalleryImages";
 import { backgroundColor } from "../fields/backgroundColor";
+import { Media } from "./Media";
 
 export const ContentGrid: Block = {
   slug: "contentGrid",
@@ -93,9 +94,26 @@ export const ContentGrid: Block = {
                 }),
                 GalleryImages({ hasBackgroundColor: false }),
                 Map({ hasBackgroundColor: false }),
+                Media({ hasBackgroundColor: false }),
               ],
             },
           ],
+          admin: {
+            components: {
+              // @ts-ignore
+              RowLabel: ({ data, index }) => {
+                const { content } = data;
+
+                if (content && content.length > 0) {
+                  const { blockName } = content[0];
+                  if (blockName) {
+                    return blockName;
+                  }
+                }
+                return `Cell ${index}`;
+              },
+            },
+          },
         },
       ],
     }),
