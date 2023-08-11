@@ -4,16 +4,19 @@ import Video from "../fields/richText/video";
 import HR from "../fields/richText/hr";
 import { richText } from "../fields/richText";
 import { blockFields } from "../fields/blockFields";
+import { backgroundColor } from "../fields/backgroundColor";
 
 type ContentType = (options?: {
   displayWidth?: boolean;
   displayAlignment?: boolean;
+  hasBackgroundColor?: boolean;
   singleColumn?: boolean;
 }) => Block;
 
 const Content: ContentType = ({
   displayWidth = true,
   displayAlignment = true,
+  hasBackgroundColor = true,
   singleColumn = false,
 } = {}) => {
   let widthField: Field = {
@@ -100,7 +103,6 @@ const Content: ContentType = ({
   let comlumnFields: Field = {
     name: "columns",
     type: "array",
-    minRows: 1,
     labels: {
       singular: "Column",
       plural: "Columns",
@@ -109,7 +111,11 @@ const Content: ContentType = ({
     hidden: singleColumn,
   };
 
-  let fields = [comlumnFields, singleColumnFields];
+  let fields: Field[] = [comlumnFields, singleColumnFields];
+
+  if (hasBackgroundColor) {
+    fields = [backgroundColor(), ...fields];
+  }
 
   let Content: Block = {
     slug: "content",

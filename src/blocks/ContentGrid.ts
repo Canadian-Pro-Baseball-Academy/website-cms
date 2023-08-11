@@ -4,6 +4,7 @@ import { richText } from "../fields/richText";
 import { Map } from "./Map";
 import Content from "./Content";
 import { GalleryImages } from "./GalleryImages";
+import { backgroundColor } from "../fields/backgroundColor";
 
 export const ContentGrid: Block = {
   slug: "content-grid",
@@ -11,6 +12,7 @@ export const ContentGrid: Block = {
     blockFields({
       name: "contentGridFields",
       fields: [
+        backgroundColor(),
         {
           name: "useLeadingHeader",
           label: "Use Leading Header",
@@ -86,10 +88,11 @@ export const ContentGrid: Block = {
                 Content({
                   displayWidth: false,
                   displayAlignment: false,
+                  hasBackgroundColor: false,
                   singleColumn: true,
                 }),
-                GalleryImages,
-                Map,
+                GalleryImages({ hasBackgroundColor: false }),
+                Map({ hasBackgroundColor: false }),
               ],
             },
           ],

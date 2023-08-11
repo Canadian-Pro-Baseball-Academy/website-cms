@@ -44,7 +44,7 @@ export const PageSettings: CollectionConfig = {
                     plural: "Gallery Blocks",
                   },
                   type: "blocks",
-                  blocks: [GallerySlider, GalleryImages],
+                  blocks: [GallerySlider, GalleryImages()],
                 },
               ],
             },
