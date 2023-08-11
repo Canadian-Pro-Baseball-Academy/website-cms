@@ -9,38 +9,43 @@ export const GalleryImages: GalleryImagesType = ({
   hasBackgroundColor = true,
 } = {}) => {
   let baseFields: Field[] = [
-    {
-      name: "useLeadingHeader",
-      label: "Use Leading Header",
-      type: "checkbox",
-    },
-    richText({
-      name: "leadingHeader",
-      label: "Leading Header",
-      admin: {
-        condition: (_, siblingData) => siblingData.useLeadingHeader,
-      },
-    }),
-    {
-      name: "columns",
-      label: "Number of columns",
-      type: "select",
-      options: [
-        { label: "One Column", value: "1" },
-        { label: "Two Columns", value: "2" },
-        { label: "Three Columns", value: "3" },
-        { label: "Four Columns", value: "4" },
-        { label: "Five Columns", value: "5" },
+    blockFields({
+      name: "imagesFields",
+      fields: [
+        {
+          name: "useLeadingHeader",
+          label: "Use Leading Header",
+          type: "checkbox",
+        },
+        richText({
+          name: "leadingHeader",
+          label: "Leading Header",
+          admin: {
+            condition: (_, siblingData) => siblingData.useLeadingHeader,
+          },
+        }),
+        {
+          name: "columns",
+          label: "Number of columns",
+          type: "select",
+          options: [
+            { label: "One Column", value: "1" },
+            { label: "Two Columns", value: "2" },
+            { label: "Three Columns", value: "3" },
+            { label: "Four Columns", value: "4" },
+            { label: "Five Columns", value: "5" },
+          ],
+        },
+        {
+          type: "relationship",
+          name: "images",
+          required: true,
+          minRows: 1,
+          hasMany: true,
+          relationTo: "media",
+        },
       ],
-    },
-    {
-      type: "relationship",
-      name: "images",
-      required: true,
-      minRows: 1,
-      hasMany: true,
-      relationTo: "media",
-    },
+    }),
   ];
 
   if (hasBackgroundColor) {
@@ -53,11 +58,6 @@ export const GalleryImages: GalleryImagesType = ({
       singular: "Gallery Images",
       plural: "Gallery Images",
     },
-    fields: [
-      blockFields({
-        name: "imagesFields",
-        fields: baseFields,
-      }),
-    ],
+    fields: baseFields,
   };
 };

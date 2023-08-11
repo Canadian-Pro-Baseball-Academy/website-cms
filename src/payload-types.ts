@@ -108,6 +108,7 @@ export interface Page {
   layout?: (
     | {
         contentFields: {
+          backgroundColor?: 'white' | 'primary' | 'shaded' | 'secondary' | 'muted';
           columns?: {
             alignment: 'left' | 'center' | 'right';
             width: 'oneThird' | 'half' | 'twoThirds' | 'full';
@@ -177,6 +178,7 @@ export interface Page {
       }
     | {
         contentGridFields: {
+          backgroundColor?: 'white' | 'primary' | 'shaded' | 'secondary' | 'muted';
           useLeadingHeader?: boolean;
           leadingHeader?: {
             [k: string]: unknown;
@@ -289,6 +291,7 @@ export interface Page {
       }
     | {
         imagesFields: {
+          backgroundColor?: 'white' | 'primary' | 'shaded' | 'secondary' | 'muted';
           useLeadingHeader?: boolean;
           leadingHeader?: {
             [k: string]: unknown;
@@ -302,6 +305,7 @@ export interface Page {
       }
     | {
         mapFields: {
+          backgroundColor?: 'white' | 'primary' | 'shaded' | 'secondary' | 'muted';
           /**
            * @minItems 2
            * @maxItems 2
@@ -393,6 +397,7 @@ export interface PageSetting {
         }
       | {
           imagesFields: {
+            backgroundColor?: 'white' | 'primary' | 'shaded' | 'secondary' | 'muted';
             useLeadingHeader?: boolean;
             leadingHeader?: {
               [k: string]: unknown;

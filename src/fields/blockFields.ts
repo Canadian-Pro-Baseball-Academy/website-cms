@@ -16,10 +16,6 @@ export const blockFields = ({ name, fields, overrides }: Args): Field => {
       type: "group",
       admin: {
         hideGutter: true,
-        style: {
-          margin: 0,
-          padding: 0,
-        },
       },
       fields: fields,
     },

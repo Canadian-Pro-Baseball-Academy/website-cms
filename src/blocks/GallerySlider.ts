@@ -1,10 +1,14 @@
-import { Block } from "payload/types";
+import { Block, Field } from "payload/types";
 import { blockFields } from "../fields/blockFields";
 import { richText } from "../fields/richText";
+import { backgroundColor } from "../fields/backgroundColor";
 
-export const GallerySlider: Block = {
-  slug: "gallery-slider",
-  fields: [
+type GallerySliderType = (options?: { hasBackgroundColor?: boolean }) => Block;
+
+export const GallerySlider: GallerySliderType = ({
+  hasBackgroundColor = true,
+} = {}) => {
+  let baseFields: Field[] = [
     blockFields({
       name: "sliderFields",
       fields: [
@@ -36,5 +40,14 @@ export const GallerySlider: Block = {
         },
       ],
     }),
-  ],
+  ];
+
+  if (hasBackgroundColor) {
+    baseFields = [backgroundColor(), ...baseFields];
+  }
+
+  return {
+    slug: "gallery-slider",
+    fields: baseFields,
+  };
 };

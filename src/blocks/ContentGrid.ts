@@ -9,10 +9,10 @@ import { backgroundColor } from "../fields/backgroundColor";
 export const ContentGrid: Block = {
   slug: "content-grid",
   fields: [
+    backgroundColor(),
     blockFields({
       name: "contentGridFields",
       fields: [
-        backgroundColor(),
         {
           name: "useLeadingHeader",
           label: "Use Leading Header",

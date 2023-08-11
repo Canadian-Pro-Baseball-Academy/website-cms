@@ -172,8 +172,6 @@
 }
 
 .custom-color-picker {
-  padding-bottom: base(1);
-
   &__btn.btn {
     margin: base(.25);
 
@@ -198,7 +196,7 @@
 
 .chip {
   border-radius: 50%;
-  border: $style-stroke-width-m solid $color-light-gray;
+  border: $style-stroke-width-s solid $color-light-gray;
   height: base(1.25);
   width: base(1.25);
   margin-right: base(.5);;

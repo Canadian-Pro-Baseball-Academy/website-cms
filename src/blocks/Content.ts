@@ -111,7 +111,12 @@ const Content: ContentType = ({
     hidden: singleColumn,
   };
 
-  let fields: Field[] = [comlumnFields, singleColumnFields];
+  let fields: Field[] = [
+    blockFields({
+      name: "contentFields",
+      fields: [comlumnFields, singleColumnFields],
+    }),
+  ];
 
   if (hasBackgroundColor) {
     fields = [backgroundColor(), ...fields];
@@ -123,12 +128,7 @@ const Content: ContentType = ({
       singular: "Content",
       plural: "Content Blocks",
     },
-    fields: [
-      blockFields({
-        name: "contentFields",
-        fields: fields,
-      }),
-    ],
+    fields: fields,
   };
 
   return Content;
