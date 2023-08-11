@@ -12,6 +12,10 @@ export const Footer: GlobalConfig = {
     read: anyone,
     update: admins,
   },
+  versions: {
+    drafts: true,
+    max: 10,
+  },
   fields: [
     {
       name: "columns",

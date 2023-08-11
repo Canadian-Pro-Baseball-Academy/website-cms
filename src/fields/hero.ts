@@ -83,7 +83,7 @@ export const hero: HeroType = (
       {
         name: "forms",
         type: "relationship",
-        relationTo: "team-snap-forms",
+        relationTo: "teamSnapForms",
         hasMany: true,
         admin: {
           condition: (_, { type }) => type === "registration",

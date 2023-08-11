@@ -22,7 +22,7 @@ import { TeamSnapForms } from "./collections/TeamSnapForms";
 export default buildConfig({
   admin: {
     user: Users.slug,
-    css: path.resolve(__dirname, "./styles/globals.scss"),
+    css: path.resolve(__dirname, "styles/globals.scss"),
     components: {
       graphics: {
         Icon,
@@ -64,7 +64,7 @@ export default buildConfig({
         docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
     }),
     seo({
-      collections: ["pages", "page-settings"],
+      collections: ["pages", "pageSettings"],
       globals: ["site-settings"],
       uploadsCollection: "media",
       tabbedUI: true,

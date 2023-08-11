@@ -57,7 +57,10 @@ export const Map: MapType = ({ hasBackgroundColor = true } = {}) => {
   ];
 
   if (hasBackgroundColor) {
-    baseFields = [backgroundColor(), ...baseFields];
+    baseFields = [
+      backgroundColor({ overrides: { name: "mapBackgroundColor" } }),
+      ...baseFields,
+    ];
   }
 
   return {

@@ -119,7 +119,10 @@ const Content: ContentType = ({
   ];
 
   if (hasBackgroundColor) {
-    fields = [backgroundColor(), ...fields];
+    fields = [
+      backgroundColor({ overrides: { name: "contentBackgroundColor" } }),
+      ...fields,
+    ];
   }
 
   let Content: Block = {

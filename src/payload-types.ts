@@ -11,9 +11,9 @@ export interface Config {
     coaches: Coach;
     media: Media;
     pages: Page;
-    'page-settings': PageSetting;
+    pageSettings: PageSetting;
     teams: Team;
-    'team-snap-forms': TeamSnapForm;
+    teamSnapForms: TeamSnapForm;
     users: User;
     redirects: Redirect;
   };
@@ -55,7 +55,7 @@ export interface Coach {
 export interface Media {
   id: string;
   alt: string;
-  aspectRatio?: '1.7778' | '1.3333' | '1.5' | '1' | '1.25' | '3' | '0.6667' | '0.5625' | '2.3333';
+  aspectRatio?: '1.7778' | '1.3333' | '1.5' | '1' | '1.25' | '3' | '0.6667';
   blurURL?: string;
   darkModeFallback?: string | Media;
   updatedAt: string;
@@ -85,7 +85,7 @@ export interface Page {
             }
           | {
               value: string | PageSetting;
-              relationTo: 'page-settings';
+              relationTo: 'pageSettings';
             }
           | {
               value: string | Team;
@@ -107,8 +107,8 @@ export interface Page {
   };
   layout?: (
     | {
+        contentBackgroundColor?: 'white' | 'primary' | 'shaded' | 'secondary' | 'muted';
         contentFields: {
-          backgroundColor?: 'white' | 'primary' | 'shaded' | 'secondary' | 'muted';
           columns?: {
             alignment: 'left' | 'center' | 'right';
             width: 'oneThird' | 'half' | 'twoThirds' | 'full';
@@ -126,7 +126,7 @@ export interface Page {
                     }
                   | {
                       value: string | PageSetting;
-                      relationTo: 'page-settings';
+                      relationTo: 'pageSettings';
                     }
                   | {
                       value: string | Team;
@@ -157,7 +157,7 @@ export interface Page {
                     }
                   | {
                       value: string | PageSetting;
-                      relationTo: 'page-settings';
+                      relationTo: 'pageSettings';
                     }
                   | {
                       value: string | Team;
@@ -177,8 +177,8 @@ export interface Page {
         blockType: 'content';
       }
     | {
+        contentGridBackgroundColor?: 'white' | 'primary' | 'shaded' | 'secondary' | 'muted';
         contentGridFields: {
-          backgroundColor?: 'white' | 'primary' | 'shaded' | 'secondary' | 'muted';
           useLeadingHeader?: boolean;
           leadingHeader?: {
             [k: string]: unknown;
@@ -204,7 +204,7 @@ export interface Page {
                               }
                             | {
                                 value: string | PageSetting;
-                                relationTo: 'page-settings';
+                                relationTo: 'pageSettings';
                               }
                             | {
                                 value: string | Team;
@@ -233,7 +233,7 @@ export interface Page {
                               }
                             | {
                                 value: string | PageSetting;
-                                relationTo: 'page-settings';
+                                relationTo: 'pageSettings';
                               }
                             | {
                                 value: string | Team;
@@ -263,7 +263,7 @@ export interface Page {
                   };
                   id?: string;
                   blockName?: string;
-                  blockType: 'gallery-images';
+                  blockType: 'galleryImages';
                 }
               | {
                   mapFields: {
@@ -287,11 +287,11 @@ export interface Page {
         };
         id?: string;
         blockName?: string;
-        blockType: 'content-grid';
+        blockType: 'contentGrid';
       }
     | {
+        galleryImagesBackgroundColor?: 'white' | 'primary' | 'shaded' | 'secondary' | 'muted';
         imagesFields: {
-          backgroundColor?: 'white' | 'primary' | 'shaded' | 'secondary' | 'muted';
           useLeadingHeader?: boolean;
           leadingHeader?: {
             [k: string]: unknown;
@@ -301,11 +301,11 @@ export interface Page {
         };
         id?: string;
         blockName?: string;
-        blockType: 'gallery-images';
+        blockType: 'galleryImages';
       }
     | {
+        mapBackgroundColor?: 'white' | 'primary' | 'shaded' | 'secondary' | 'muted';
         mapFields: {
-          backgroundColor?: 'white' | 'primary' | 'shaded' | 'secondary' | 'muted';
           /**
            * @minItems 2
            * @maxItems 2
@@ -358,7 +358,7 @@ export interface PageSetting {
             }
           | {
               value: string | PageSetting;
-              relationTo: 'page-settings';
+              relationTo: 'pageSettings';
             }
           | {
               value: string | Team;
@@ -378,39 +378,6 @@ export interface PageSetting {
     forms?: string[] | TeamSnapForm[];
     previewTest?: string;
   };
-  gallery?: {
-    gallery?: (
-      | {
-          sliderFields: {
-            useLeadingHeader?: boolean;
-            leadingHeader?: {
-              [k: string]: unknown;
-            }[];
-            slides: {
-              image: string | Media;
-              id?: string;
-            }[];
-          };
-          id?: string;
-          blockName?: string;
-          blockType: 'gallery-slider';
-        }
-      | {
-          imagesFields: {
-            backgroundColor?: 'white' | 'primary' | 'shaded' | 'secondary' | 'muted';
-            useLeadingHeader?: boolean;
-            leadingHeader?: {
-              [k: string]: unknown;
-            }[];
-            columns?: '1' | '2' | '3' | '4' | '5';
-            images: string[] | Media[];
-          };
-          id?: string;
-          blockName?: string;
-          blockType: 'gallery-images';
-        }
-    )[];
-  };
   coachingStaff?: {
     mainCoaches?: string[] | Coach[];
     subsidaryCoaches?: string[] | Coach[];
@@ -424,7 +391,7 @@ export interface PageSetting {
     image?: string | Media;
     keywords?: string;
   };
-  type: 'gallery' | 'coaching-staff' | 'news';
+  type: 'coachingStaff' | 'news';
   title: string;
   slug?: string;
   updatedAt: string;
@@ -540,7 +507,7 @@ export interface Footer {
             }
           | {
               value: string | PageSetting;
-              relationTo: 'page-settings';
+              relationTo: 'pageSettings';
             }
           | {
               value: string | Team;
@@ -577,7 +544,7 @@ export interface Header {
             }
           | {
               value: string | PageSetting;
-              relationTo: 'page-settings';
+              relationTo: 'pageSettings';
             }
           | {
               value: string | Team;
@@ -599,7 +566,7 @@ export interface Header {
                     }
                   | {
                       value: string | PageSetting;
-                      relationTo: 'page-settings';
+                      relationTo: 'pageSettings';
                     }
                   | {
                       value: string | Team;
@@ -611,7 +578,7 @@ export interface Header {
               };
               id?: string;
               blockName?: string;
-              blockType: 'menu-highlight';
+              blockType: 'menuHighlight';
             }
           | {
               link: {
@@ -624,7 +591,7 @@ export interface Header {
                     }
                   | {
                       value: string | PageSetting;
-                      relationTo: 'page-settings';
+                      relationTo: 'pageSettings';
                     }
                   | {
                       value: string | Team;
@@ -636,7 +603,7 @@ export interface Header {
               };
               id?: string;
               blockName?: string;
-              blockType: 'menu-link';
+              blockType: 'menuLink';
             }
           | {
               name?: string;
@@ -651,7 +618,7 @@ export interface Header {
                       }
                     | {
                         value: string | PageSetting;
-                        relationTo: 'page-settings';
+                        relationTo: 'pageSettings';
                       }
                     | {
                         value: string | Team;
@@ -664,7 +631,7 @@ export interface Header {
               }[];
               id?: string;
               blockName?: string;
-              blockType: 'menu-column';
+              blockType: 'menuColumn';
             }
         )[];
       };

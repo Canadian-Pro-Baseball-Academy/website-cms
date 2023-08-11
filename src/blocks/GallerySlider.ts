@@ -43,11 +43,14 @@ export const GallerySlider: GallerySliderType = ({
   ];
 
   if (hasBackgroundColor) {
-    baseFields = [backgroundColor(), ...baseFields];
+    baseFields = [
+      backgroundColor({ overrides: { name: "gallerySliderBackgroundColor" } }),
+      ...baseFields,
+    ];
   }
 
   return {
-    slug: "gallery-slider",
+    slug: "gallerySlider",
     fields: baseFields,
   };
 };

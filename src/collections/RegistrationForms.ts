@@ -5,7 +5,7 @@ import { anyone } from "../access/anyone";
 import linkGroup from "../fields/linkGroup";
 
 export const RegistrationForms: CollectionConfig = {
-  slug: "registration-forms",
+  slug: "registrationForms",
   admin: {
     useAsTitle: "title",
     group: "Settings",

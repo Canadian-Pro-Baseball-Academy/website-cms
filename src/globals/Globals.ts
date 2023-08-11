@@ -12,6 +12,10 @@ export const Globals: GlobalConfig = {
     read: anyone,
     update: admins,
   },
+  versions: {
+    drafts: true,
+    max: 10,
+  },
   fields: [
     {
       type: "tabs",

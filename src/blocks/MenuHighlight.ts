@@ -2,7 +2,7 @@ import { Block } from "payload/types";
 import link from "../fields/link";
 
 export const MenuHighlight: Block = {
-  slug: "menu-highlight",
+  slug: "menuHighlight",
   labels: {
     plural: "Menu Highlights",
     singular: "Menu Highlight",

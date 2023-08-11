@@ -6,7 +6,7 @@ import { slug } from "../fields/slug";
 import { anyone } from "../access/anyone";
 
 export const PageSettings: CollectionConfig = {
-  slug: "page-settings",
+  slug: "pageSettings",
   admin: {
     useAsTitle: "title",
     group: "Config",
@@ -30,30 +30,11 @@ export const PageSettings: CollectionConfig = {
           label: "Content",
           fields: [
             {
-              name: "gallery",
-              label: false,
-              type: "group",
-              admin: {
-                condition: (_, { type } = {}) => type === "gallery",
-              },
-              fields: [
-                {
-                  name: "gallery",
-                  labels: {
-                    singular: "Gallery Block",
-                    plural: "Gallery Blocks",
-                  },
-                  type: "blocks",
-                  blocks: [GallerySlider(), GalleryImages()],
-                },
-              ],
-            },
-            {
               name: "coachingStaff",
               label: false,
               type: "group",
               admin: {
-                condition: (_, { type } = {}) => type === "coaching-staff",
+                condition: (_, { type } = {}) => type === "coachingStaff",
               },
               fields: [
                 {
@@ -108,8 +89,7 @@ export const PageSettings: CollectionConfig = {
         position: "sidebar",
       },
       options: [
-        { value: "gallery", label: "Gallery" },
-        { value: "coaching-staff", label: "Coaching Staff" },
+        { value: "coachingStaff", label: "Coaching Staff" },
         { value: "news", label: "News" },
       ],
     },

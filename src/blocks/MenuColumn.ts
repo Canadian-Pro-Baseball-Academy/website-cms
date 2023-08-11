@@ -2,7 +2,7 @@ import { Block } from "payload/types";
 import linkGroup from "../fields/linkGroup";
 
 export const MenuColumn: Block = {
-  slug: "menu-column",
+  slug: "menuColumn",
   labels: {
     plural: "Menu Columns",
     singular: "Menu Column",

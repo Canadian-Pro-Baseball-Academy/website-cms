@@ -45,7 +45,7 @@ export async function getTeams(): Promise<iTeamsAPI> {
         (data: any) =>
           data.name === "name" &&
           data.value.trim().toLowerCase() ===
-            "Canadian Pro Baseball Academy".trim().toLowerCase()
+            "Can Pro Baseball Academy".trim().toLowerCase()
       )
     );
 

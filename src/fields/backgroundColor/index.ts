@@ -10,6 +10,7 @@ export const backgroundColor = ({ overrides }: Args = {}): Field =>
   deepMerge(
     {
       name: "backgroundColor",
+      label: "Background Color",
       type: "select",
       defaultValue: "white",
       options: [

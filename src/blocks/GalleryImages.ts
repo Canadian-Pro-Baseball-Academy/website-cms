@@ -49,11 +49,14 @@ export const GalleryImages: GalleryImagesType = ({
   ];
 
   if (hasBackgroundColor) {
-    baseFields = [backgroundColor(), ...baseFields];
+    baseFields = [
+      backgroundColor({ overrides: { name: "galleryImagesBackgroundColor" } }),
+      ...baseFields,
+    ];
   }
 
   return {
-    slug: "gallery-images",
+    slug: "galleryImages",
     labels: {
       singular: "Gallery Images",
       plural: "Gallery Images",

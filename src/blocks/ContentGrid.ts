@@ -7,9 +7,9 @@ import { GalleryImages } from "./GalleryImages";
 import { backgroundColor } from "../fields/backgroundColor";
 
 export const ContentGrid: Block = {
-  slug: "content-grid",
+  slug: "contentGrid",
   fields: [
-    backgroundColor(),
+    backgroundColor({ overrides: { name: "contentGridBackgroundColor" } }),
     blockFields({
       name: "contentGridFields",
       fields: [
