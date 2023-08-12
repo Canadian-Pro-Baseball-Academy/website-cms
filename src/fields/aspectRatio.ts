@@ -41,8 +41,8 @@ export const aspectRatio: AspectRatioType = ({ overrides } = {}) => {
         value: "3",
       },
       {
-        label: "2:3 - Taller format, suitable for portrait-oriented images.",
-        value: "0.6667",
+        label: "4:5 - Taller format, suitable for portrait-oriented images.",
+        value: "0.8",
       },
     ],
   };
