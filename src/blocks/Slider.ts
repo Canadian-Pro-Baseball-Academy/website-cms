@@ -50,6 +50,8 @@ export const Slider: SliderType = ({ hasBackgroundColor = true } = {}) => {
           required: true,
           minRows: 3,
           admin: {
+            description:
+              "For the best results, use images that the same aspect ratio.",
             condition: (_, siblingData) =>
               siblingData.sliderType === "imageSlider",
           },

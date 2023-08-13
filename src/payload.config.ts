@@ -18,6 +18,7 @@ import seo from "@payloadcms/plugin-seo";
 import formBuilder from "@payloadcms/plugin-form-builder";
 import { PageSettings } from "./collections/PageSettings";
 import { TeamSnapForms } from "./collections/TeamSnapForms";
+import { Posts } from "./collections/Posts";
 
 export default buildConfig({
   admin: {
@@ -39,6 +40,7 @@ export default buildConfig({
     Media,
     Pages,
     PageSettings,
+    Posts,
     Teams,
     TeamSnapForms,
     Users,
@@ -64,7 +66,7 @@ export default buildConfig({
         docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
     }),
     seo({
-      collections: ["pages", "pageSettings"],
+      collections: ["pages", "pageSettings", "posts"],
       globals: ["site-settings"],
       uploadsCollection: "media",
       tabbedUI: true,
