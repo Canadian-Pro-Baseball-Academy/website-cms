@@ -325,7 +325,7 @@ export interface Page {
     | MediaBlock
     | {
         postsHighlightBackgroundColor?: 'white' | 'primary' | 'shaded' | 'secondary' | 'muted';
-        caseStudiesHighlightFields: {
+        postHighlightFields: {
           useLeadingHeader?: boolean;
           leadingHeader?: {
             [k: string]: unknown;
@@ -568,6 +568,7 @@ export interface Post {
   };
   slug?: string;
   authors: string[] | User[];
+  publishedOn: string;
   updatedAt: string;
   createdAt: string;
   _status?: 'draft' | 'published';

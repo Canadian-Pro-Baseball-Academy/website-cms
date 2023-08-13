@@ -10,7 +10,7 @@ export const PostsHighlight: PostsHighlightType = ({
 } = {}) => {
   let baseFields: Field[] = [
     blockFields({
-      name: "caseStudiesHighlightFields",
+      name: "postHighlightFields",
       fields: [
         {
           name: "useLeadingHeader",

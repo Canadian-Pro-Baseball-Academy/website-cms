@@ -80,5 +80,16 @@ export const Posts: CollectionConfig = {
         position: "sidebar",
       },
     },
+    {
+      name: "publishedOn",
+      type: "date",
+      required: true,
+      admin: {
+        date: {
+          pickerAppearance: "dayAndTime",
+        },
+        position: "sidebar",
+      },
+    },
   ],
 };
