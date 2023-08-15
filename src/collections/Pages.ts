@@ -13,6 +13,7 @@ import Content from "../blocks/Content";
 import { Media } from "../blocks/Media";
 import { Slider } from "../blocks/Slider";
 import { PostsHighlight } from "../blocks/PostsHighlight";
+import { CallToAction } from "../blocks/CallToAction";
 
 export const Pages: CollectionConfig = {
   slug: "pages",
@@ -55,6 +56,7 @@ export const Pages: CollectionConfig = {
               minRows: 1,
               localized: true,
               blocks: [
+                CallToAction,
                 Content(),
                 ContentGrid,
                 GalleryImages(),
