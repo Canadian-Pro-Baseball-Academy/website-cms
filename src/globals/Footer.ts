@@ -2,6 +2,7 @@ import { GlobalConfig } from "payload/types";
 import { anyone } from "../access/anyone";
 import { admins } from "../access/admins";
 import link from "../fields/link";
+import { richText } from "../fields/richText";
 
 export const Footer: GlobalConfig = {
   slug: "footer",
@@ -17,6 +18,22 @@ export const Footer: GlobalConfig = {
     max: 10,
   },
   fields: [
+    {
+      name: "logo",
+      type: "upload",
+      relationTo: "media",
+      required: true,
+    },
+    richText({
+      name: "summary",
+      label: "Program Summary",
+      admin: {
+        description:
+          "This is the summary that appears in the footer. It should be a short paragraph (<100 characters).",
+        elements: ["h1"],
+        leaves: [],
+      },
+    }),
     {
       name: "columns",
       type: "array",
