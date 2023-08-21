@@ -28,13 +28,33 @@ export const Header: GlobalConfig = {
           label: "Top Bar",
           name: "topBar",
           fields: [
-            richText({
+            {
+              type: "group",
               name: "announcement",
+              label: "Announcement",
               admin: {
-                elements: ["link"],
-                leaves: ["bold", "underline", "italic"],
+                description:
+                  "This will appear at the top of the page. Make two versions, one for desktop and one for mobile, and the correct one will be shown depending on the screen size.",
               },
-            }),
+              fields: [
+                richText({
+                  name: "desktop",
+                  label: "Desktop Version",
+                  admin: {
+                    elements: ["link"],
+                    leaves: ["bold", "underline", "italic"],
+                  },
+                }),
+                richText({
+                  name: "mobile",
+                  label: "Mobile Version",
+                  admin: {
+                    elements: ["link"],
+                    leaves: ["bold", "underline", "italic"],
+                  },
+                }),
+              ],
+            },
           ],
         },
         {
