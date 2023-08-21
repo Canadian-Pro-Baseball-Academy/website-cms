@@ -29,8 +29,9 @@ export const Header: GlobalConfig = {
           name: "topBar",
           fields: [
             richText({
+              name: "announcement",
               admin: {
-                elements: [],
+                elements: ["link"],
                 leaves: ["bold", "underline", "italic"],
               },
             }),
