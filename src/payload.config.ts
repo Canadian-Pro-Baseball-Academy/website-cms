@@ -47,7 +47,11 @@ export default buildConfig({
   ],
   globals: [Globals, Footer, Header],
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
-  cors: "*",
+  cors: [
+    process.env.PAYLOAD_PUBLIC_SERVER_URL || "",
+    process.env.PAYLOAD_PUBLIC_SITE_URL || "",
+    "https://calgarybisons.payloadcms.app",
+  ].filter(Boolean),
   csrf: [
     process.env.PAYLOAD_PUBLIC_SERVER_URL || "",
     process.env.PAYLOAD_PUBLIC_SITE_URL || "",
