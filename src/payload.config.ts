@@ -100,7 +100,7 @@ export default buildConfig({
           delete: admins,
         },
       },
-      collections: ["pages", "pageSettings"],
+      collections: ["pages", "pageSettings", "teams", "posts"],
     }),
     payloadCloud(),
   ],
