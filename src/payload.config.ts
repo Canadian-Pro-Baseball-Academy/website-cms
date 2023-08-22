@@ -19,6 +19,7 @@ import formBuilder from "@payloadcms/plugin-form-builder";
 import { PageSettings } from "./collections/PageSettings";
 import { TeamSnapForms } from "./collections/TeamSnapForms";
 import { Posts } from "./collections/Posts";
+import { anyone } from "./access/anyone";
 
 export default buildConfig({
   admin: {
@@ -93,13 +94,13 @@ export default buildConfig({
           group: "Admin",
         },
         access: {
-          read: admins,
+          read: anyone,
           create: admins,
           update: admins,
           delete: admins,
         },
       },
-      collections: ["pages"],
+      collections: ["pages", "pageSettings"],
     }),
     payloadCloud(),
   ],
