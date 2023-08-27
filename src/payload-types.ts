@@ -110,6 +110,8 @@ export interface Page {
     | {
         ctaBackgroundColor?: 'white' | 'primary' | 'shaded' | 'secondary' | 'muted';
         ctaFields?: {
+          logo?: 'primary' | 'alternate';
+          alignment?: 'left' | 'center' | 'right';
           richText?: {
             [k: string]: unknown;
           }[];
@@ -627,10 +629,23 @@ export interface Redirect {
   from: string;
   to: {
     type?: 'reference' | 'custom';
-    reference: {
-      value: string | Page;
-      relationTo: 'pages';
-    };
+    reference:
+      | {
+          value: string | Page;
+          relationTo: 'pages';
+        }
+      | {
+          value: string | PageSetting;
+          relationTo: 'pageSettings';
+        }
+      | {
+          value: string | Team;
+          relationTo: 'teams';
+        }
+      | {
+          value: string | Post;
+          relationTo: 'posts';
+        };
     url: string;
   };
   updatedAt: string;
